@@ -1,0 +1,138 @@
+import unittest
+import requests
+import json
+import sys
+
+sys.path.append("../..")  # 提升2级到项目根目录下
+from config.config import *  # 从项目路径下导入
+from lib.read_excel import *  # 从项目路径下导入
+from lib.case_log import log_case_info  # 从项目路径下导入
+
+
+class TestUserLogin(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):  # 整个测试类只执行一次
+        cls.data_list = excel_to_list(os.path.join(data_path, "test_user_data.xlsx"),
+                                      "TestUserLogin")  # 读取TestUserReg工作簿的所有数据
+
+    def test_01user_login_normal(self):
+        u'''测试登录'''
+        case_data = get_test_data(self.data_list, 'test_user_login_normal')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url')  # excel中的标题也必须是小写url
+        data = case_data.get('data')  # 注意字符串格式，需要用json.loads()转化为字典格式
+        data1 = data.encode('UTF-8')
+        expect_res = case_data.get('expect_res')  # 期望数据
+
+        res = requests.post(url=url, data=json.loads(data1))  # 表单请求，数据转为字典格式
+        log_case_info('test_user_login_normal', url, data, expect_res, res.text)
+        self.assertEqual(res.text, expect_res)  # 断言
+
+    def test_02xiaobaiban_coment(self):
+        u'''小白板评论'''
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_coment')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url')  # excel中的标题也必须是小写url
+        data = case_data.get('data')  # 注意字符串格式，需要用json.loads()转化为字典格式
+        expect_res = case_data.get('expect_res')  # 期望数据
+
+        res = requests.post(url=url, data=data.encode(), headers=header)
+        log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+
+    def test_03xiaobaiban_cainajianyi(self):
+        u'''采纳建议'''
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_cainajianyi')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url')  # excel中的标题也必须是小写url
+        data = case_data.get('data')  # 注意字符串格式，需要用json.loads()转化为字典格式
+        expect_res = case_data.get('expect_res')  # 期望数据
+        res = requests.get(url=url, headers=header)
+        log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+
+    def test_04xiaobaiban_quxiaocaina(self):
+        u'''取消采纳建议'''
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_quxiaocaina')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url') # excel中的标题也必须是小写url
+        data=case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        res = requests.get(url=url, headers=header)
+        log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+
+    def test_05xiaobaiban_yidu(self):
+        u'''取消采纳建议'''
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_yidu')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url') # excel中的标题也必须是小写url
+        data=case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        res = requests.get(url=url, headers=header)
+        log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+
+    def test_06xiaobaiban_weidu(self):
+        u'''取消采纳建议'''
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_weidu')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url') # excel中的标题也必须是小写url
+        data=case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        res = requests.get(url=url, headers=header)
+        log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+
+    def test_07xiaobaiban_remind(self):
+        u'''提醒阅读'''
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_remind')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url') # excel中的标题也必须是小写url
+        data=case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        res = requests.post(url=url, data=data.encode(), headers=header)
+        log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+
+    def test_08xiaobaiban_kudos(self):
+        u'''点赞'''
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_kudos')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url')  # excel中的标题也必须是小写url
+        data = case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        res = requests.get(url=url, headers=header)
+        log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+
+    def test_09xiaobaiban_unkudos(self):
+        u'''取掉点赞'''
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_unkudos')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url')  # excel中的标题也必须是小写url
+        data = case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        res = requests.get(url=url, headers=header)
+        log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+if __name__ == '__main__':
+    unittest.main(verbosity=2)

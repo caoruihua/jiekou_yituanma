@@ -40,7 +40,7 @@ class TestUserLogin(unittest.TestCase):
         data = case_data.get('data')  # 注意字符串格式，需要用json.loads()转化为字典格式
         expect_res = case_data.get('expect_res')  # 期望数据
 
-        res = requests.post(url=url, data=data.encode(), headers=header)
+        res = requests.post(url=url, data=data.encode(), headers=hearder2)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -53,7 +53,7 @@ class TestUserLogin(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')  # 注意字符串格式，需要用json.loads()转化为字典格式
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.get(url=url, headers=header)
+        res = requests.get(url=url, headers=hearder2)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -66,7 +66,7 @@ class TestUserLogin(unittest.TestCase):
         url = case_data.get('url') # excel中的标题也必须是小写url
         data=case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.get(url=url, headers=header)
+        res = requests.get(url=url, headers=hearder2)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -79,7 +79,7 @@ class TestUserLogin(unittest.TestCase):
         url = case_data.get('url') # excel中的标题也必须是小写url
         data=case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.get(url=url, headers=header)
+        res = requests.get(url=url, headers=hearder2)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -92,7 +92,7 @@ class TestUserLogin(unittest.TestCase):
         url = case_data.get('url') # excel中的标题也必须是小写url
         data=case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.get(url=url, headers=header)
+        res = requests.get(url=url, headers=hearder2)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -105,7 +105,7 @@ class TestUserLogin(unittest.TestCase):
         url = case_data.get('url') # excel中的标题也必须是小写url
         data=case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.post(url=url, data=data.encode(), headers=header)
+        res = requests.post(url=url, data=data.encode(), headers=hearder2)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -118,7 +118,7 @@ class TestUserLogin(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.get(url=url, headers=header)
+        res = requests.get(url=url, headers=hearder2)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -131,8 +131,89 @@ class TestUserLogin(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.get(url=url, headers=header)
+        res = requests.get(url=url, headers=hearder2)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
+
+    def test_10xiaobaiban_collect(self):
+        u'''小白板收藏'''
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_collect')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url') # excel中的标题也必须是小写url
+        data=case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        res = requests.post(url=url, data=data.encode(), headers=hearder2)
+        log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+
+    def test_11xiaobaiban_collect_cancel(self):
+        u'''小白板取消收藏'''
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_collect_cancel')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url') # excel中的标题也必须是小写url
+        data=case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        res = requests.get(url=url, headers=hearder2)
+        log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+
+
+    def test_12xiaobaiban_search(self):
+        u'''小白板搜索'''
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_search')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url') # excel中的标题也必须是小写url
+        data=case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        res = requests.post(url=url,data=data.encode(),headers=hearder2)
+        log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+
+    def test_13xiaobaiban_looktaolun(self):
+        u'''查看讨论人数'''
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_looktaolun')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url')  # excel中的标题也必须是小写url
+        data = case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        res = requests.get(url=url, headers=hearder2)
+        log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+
+
+    def test_14xiaobaiban_groupmember(self):
+        u'''查看团队成员'''
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_groupmember')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url')  # excel中的标题也必须是小写url
+        data = case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        res = requests.get(url=url, headers=hearder2)
+        log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+
+    def test_15xiaobaiban_jielun(self):
+        u'''形成结论'''
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_jielun')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url')  # excel中的标题也必须是小写url
+        data = case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        res = requests.post(url=url,data=data.encode(), headers=hearder2)
+        log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)

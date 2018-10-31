@@ -291,7 +291,7 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.post(url=url, data=data.encode(),headers=hearder2)
+        res = requests.get(url=url, headers=hearder2)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -357,7 +357,7 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.post(url=url,data=data.encode(),headers=hearder2)
+        res = requests.get(url=url,headers=hearder2)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 

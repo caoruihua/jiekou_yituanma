@@ -9,7 +9,7 @@ from lib.read_excel import *  # 从项目路径下导入
 from lib.case_log import log_case_info  # 从项目路径下导入
 
 
-class TestUserLogin(unittest.TestCase):
+class TestXiaobaiban(unittest.TestCase):
     @classmethod
     def setUpClass(cls):  # 整个测试类只执行一次
         cls.data_list = excel_to_list(os.path.join(data_path, "test_user_data.xlsx"),
@@ -347,6 +347,20 @@ class TestUserLogin(unittest.TestCase):
         res = requests.post(url=url,data=data.encode(),headers=hearder2)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
+
+    def test_22xiaobaiban_simple(self):
+        u'''小白板提醒自己'''
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_simple')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url')  # excel中的标题也必须是小写url
+        data = case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        res = requests.post(url=url,data=data.encode(),headers=hearder2)
+        log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)

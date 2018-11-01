@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# @File  : GTP.py
+# @File  : test_GTP.py
 # @Author: Feng
 # @Date  : 2018/11/1
 # @Desc  :

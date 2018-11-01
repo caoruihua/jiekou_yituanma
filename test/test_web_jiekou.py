@@ -152,5 +152,63 @@ class WebJieKou(unittest.TestCase):
         self.assertEqual(res.status_code, expect_res)
 
 
+    def test_10_canyudu_xiaojie(self):
+        u'''我的反馈'''
+        case_data = get_test_data(self.data_list, 'test_user_canyudu_xiaojie')
+        if not case_data:
+            logging.error("用例数据不存在")
+        url = case_data.get('url')
+        data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
+        expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
+        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
+        log_case_info('test_user_canyuedu_xiaojie', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
+        # 响应断言（整体断言）
+        self.assertEqual(res.status_code, expect_res)
+
+    def test_11_faq(self):
+        u'''我的反馈'''
+        case_data = get_test_data(self.data_list, 'test_user_faq')
+        if not case_data:
+            logging.error("用例数据不存在")
+        url = case_data.get('url')
+        data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
+        expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
+        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
+        log_case_info('test_user_faq', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
+        # 响应断言（整体断言）
+        self.assertEqual(res.status_code, expect_res)
+
+    def test_11_faq(self):
+        u'''我的反馈'''
+        case_data = get_test_data(self.data_list, 'test_user_faq')
+        if not case_data:
+            logging.error("用例数据不存在")
+        url = case_data.get('url')
+        data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
+        expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
+        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
+        log_case_info('test_user_faq', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
+        # 响应断言（整体断言）
+        self.assertEqual(res.status_code, expect_res)
+
+
+    def test_12_faq_follow(self):
+        u'''faq结果反馈'''
+        case_data = get_test_data(self.data_list, 'test_user_faq_follow')
+        if not case_data:
+            logging.error("用例数据不存在")
+        url = case_data.get('url')
+        data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
+        expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
+        res = requests.post(url=url,data=data.encode(),headers=hearder2)  # 用data=data 传字符串也可以
+        # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
+        log_case_info('test_user_faq_follow', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
+        # 响应断言（整体断言）
+        self.assertEqual(res.status_code, expect_res)
+
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)  # 运行所有用例

@@ -1,5 +1,6 @@
 import logging
 import os
+import time
 
 # 项目路径
 header={
@@ -13,7 +14,7 @@ header={
 
             }
 hearder2={  "User-Agent": "ESEN/1.3.11 (iPhone; iOS 12.1; Scale/2.00)",
-            "Authorization": "Bearer d48ab059-1a40-42fd-bbd3-46f2a2e969fa",
+            "Authorization": "Bearer 78e4c50f-3d41-4f4c-b105-95a754af0e65",
             "accept": "*/*",
             "accept-encoding": "gzip,deflate,br",
             "content-type": 'application/json',
@@ -29,8 +30,9 @@ prj_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # 当前
 
 data_path = os.path.join(prj_path, 'data')  # 数据目录
 test_path = os.path.join(prj_path, 'test')   # 用例目录
+now = time.strftime('%y-%m-%d_%H_%M', time.localtime(time.time()))
 
-log_file = os.path.join(prj_path, "log", 'log.txt')  # 更改路径到log目录下
+log_file = os.path.join(prj_path, "log", now+'log.log')  # 更改路径到log目录下
 report_file = os.path.join(prj_path, 'report', 'report.html')  # 更改路径到report目录下
 
 # log配置

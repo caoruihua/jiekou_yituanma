@@ -2,7 +2,7 @@
 # from email.mime.text import MIMEText  # 邮件需要专门的MIME格式
 #
 # # 1. 编写邮件内容（Email邮件需要专门的MIME格式）
-# msg = MIMEText('this is a test email', 'plain', 'utf-8')  # plain指普通文本格式邮件内容
+# msg = MIMEText('this is a testcase email', 'plain', 'utf-8')  # plain指普通文本格式邮件内容
 #
 # # 2. 组装Email头（发件人，收件人，主题）
 # msg['From'] = 'test_results@sina.com'  # 发件人

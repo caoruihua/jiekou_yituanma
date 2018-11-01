@@ -9,7 +9,7 @@ print(report_repash)
 
 # 导入用例
 def case_all():
-    case_pash = os.path.dirname(os.path.abspath('.')) + '/jiekou2/test'
+    case_pash = os.path.dirname(os.path.abspath('.')) + '/jiekou2/testcase'
     discover = unittest.defaultTestLoader.discover(case_pash,
                                                    pattern='test_*.py')  # 添加用例，在case_path的路径下，所有以ceshi开头的文件都当做用例文件执行
     return discover

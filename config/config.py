@@ -29,7 +29,7 @@ hearder2={  "User-Agent": "ESEN/1.3.11 (iPhone; iOS 12.1; Scale/2.00)",
 prj_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # 当前文件的上一级的上一级目录（增加一级）
 
 data_path = os.path.join(prj_path, 'data')  # 数据目录
-test_path = os.path.join(prj_path, 'test')   # 用例目录
+test_path = os.path.join(prj_path, 'testcase')   # 用例目录
 now = time.strftime('%y-%m-%d_%H_%M', time.localtime(time.time()))
 
 log_file = os.path.join(prj_path, "log", now+'log.log')  # 更改路径到log目录下
@@ -46,7 +46,7 @@ logging.basicConfig(level=logging.DEBUG,  # log level
 # 数据库配置
 db_host = '115.28.108.130'
 db_port = 3306
-db_user = 'test'
+db_user = 'testcase'
 db_passwd = '123456'
 db = 'api_test'
 

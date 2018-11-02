@@ -2,11 +2,11 @@ import logging
 import os
 import time
 
-# 项目路径
+# header配置
 header={
             "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) "
                           "Chrome/70.0.3538.77 Safari/537.36",
-            "Authorization": "Bearer b649f862-d5f5-4cde-93a4-876c61af12c5",
+            "Authorization": "Bearer Bearer 7227c17d-56c5-407e-a0a5-ef8dab1fb39a",
             "accept": "application/json,text/plain,*/*",
             "accept-encoding": "gzip,deflate,br",
             "content-type": 'application/json',
@@ -14,7 +14,7 @@ header={
 
             }
 hearder2={  "User-Agent": "ESEN/1.3.11 (iPhone; iOS 12.1; Scale/2.00)",
-            "Authorization": "Bearer 78e4c50f-3d41-4f4c-b105-95a754af0e65",
+            "Authorization": "Bearer 7227c17d-56c5-407e-a0a5-ef8dab1fb39a",
             "accept": "*/*",
             "accept-encoding": "gzip,deflate,br",
             "content-type": 'application/json',
@@ -22,10 +22,22 @@ hearder2={  "User-Agent": "ESEN/1.3.11 (iPhone; iOS 12.1; Scale/2.00)",
             'channel':'IOS',
             'app-sys-info':'IOS;12.1',
             'version':'1.3.11',
+           }
 
 
+hearder3={  "User-Agent": "ESEN/1.3.11 (iPhone; iOS 12.1; Scale/2.00)",
+            "Authorization": "Bearer 7227c17d-56c5-407e-a0a5-ef8dab1fb39a",
+            "accept": "*/*",
+            "accept-encoding": "gzip,deflate,br",
+            "content-type": 'application/x-www-form-urlencoded',
+            'accept-language': 'zh-Hans-CN;q=1',
+            'channel':'IOS',
+            'app-sys-info':'IOS;12.1',
+            'version':'1.3.11',
 
-}
+        }
+
+#日志路径配置
 prj_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # 当前文件的上一级的上一级目录（增加一级）
 
 data_path = os.path.join(prj_path, 'data')  # 数据目录

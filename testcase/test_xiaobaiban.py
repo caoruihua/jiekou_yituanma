@@ -189,7 +189,7 @@ class TestXiaobaiban(unittest.TestCase):
         self.assertEqual(res.status_code, expect_res)  # 断言
 
 
-    def test_14xiaobaiban_groupmember(self):
+    def test_15xiaobaiban_groupmember(self):
         u'''查看团队成员'''
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_groupmember')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
@@ -202,7 +202,7 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
-    def test_15xiaobaiban_jielun(self):
+    def test_17xiaobaiban_jielun(self):
         u'''形成结论'''
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_jielun')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
@@ -216,7 +216,7 @@ class TestXiaobaiban(unittest.TestCase):
         self.assertEqual(res.status_code, expect_res)  # 断言
 
 
-    def test_16xiaobaiban_search(self):
+    def test_18xiaobaiban_search(self):
         u'''小白板筛选'''
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_shaixuan')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
@@ -229,7 +229,7 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
-    def test_14xiaobaiban_comenlaste(self):
+    def test_19xiaobaiban_comenlaste(self):
         u'''查看团队成员'''
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_comenlaste')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
@@ -242,7 +242,7 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
-    def test_15xiaobaiban_mremind(self):
+    def test_20xiaobaiban_mremind(self):
         u'''小白板提醒'''
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_mremind')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
@@ -255,7 +255,7 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
-    def test_16xiaobaiban_CRS(self):
+    def test_21xiaobaiban_CRS(self):
         u'''查看CRS'''
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_CRS')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
@@ -268,7 +268,7 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
-    def test_17xiaobaiban_CRS_word(self):
+    def test_22xiaobaiban_CRS_word(self):
         u'''查看CRS'''
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_CRS_word')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
@@ -282,7 +282,7 @@ class TestXiaobaiban(unittest.TestCase):
         self.assertEqual(res.status_code, expect_res)  # 断言
 
 
-    def test_18xiaobaiban_log(self):
+    def test_23xiaobaiban_log(self):
         u'''查看小白板日志'''
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_log')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
@@ -296,7 +296,7 @@ class TestXiaobaiban(unittest.TestCase):
         self.assertEqual(res.status_code, expect_res)  # 断言
 
 
-    def test_19xiaobaiban_tag(self):
+    def test_24xiaobaiban_tag(self):
         u'''小白板标签'''
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_tag')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
@@ -309,7 +309,7 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
-    def test_20xiaobaiban_show_new_v2(self):
+    def test_25xiaobaiban_show_new_v2(self):
         u'''未读角标接口'''
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_show-new-v2')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
@@ -322,7 +322,7 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
-    def test_21xiaobaiban_wechat(self):
+    def test_26xiaobaiban_wechat(self):
         u'''小白板转微信'''
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_wechat')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
@@ -348,7 +348,7 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
-    def test_23xiaobaiban_simple(self):
+    def test_27xiaobaiban_simple(self):
         u'''小白板提醒自己'''
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_simple')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None

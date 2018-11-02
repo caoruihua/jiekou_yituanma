@@ -97,7 +97,7 @@ class WebJieKou(unittest.TestCase):
         self.assertEqual(res.status_code, expect_res)
 
     def test_06words_shezhi_feedback(self):
-        u'''小白板基础数据'''
+        u'''小白板回复统计'''
         case_data = get_test_data(self.data_list, 'test_user_words_shezhi_feedback')
         if not case_data:
             logging.error("用例数据不存在")

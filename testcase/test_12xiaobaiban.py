@@ -10,6 +10,7 @@ from lib.case_log import log_case_info  # 从项目路径下导入
 
 
 class TestXiaobaiban(unittest.TestCase):
+    u'''小白板'''
     @classmethod
     def setUpClass(cls):  # 整个测试类只执行一次
         cls.data_list = excel_to_list(os.path.join(data_path, "test_user_data.xlsx"),

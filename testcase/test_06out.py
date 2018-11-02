@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# @File  : test_out.py
+# @File  : test_06out.py
 # @Author: Feng
 # @Date  : 2018/10/31
 # @Desc  :
@@ -20,6 +20,7 @@ from lib.case_log import log_case_info
 
 
 class Qingjia(unittest.TestCase):
+    u'''我的外出'''
 
     @classmethod
     def setUpClass(cls):

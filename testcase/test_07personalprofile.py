@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# @File  : test_personalprofile.py
+# @File  : test_07personalprofile.py
 # @Author: Feng
 # @Date  : 2018/10/31
 # @Desc  :
 
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# @File  : test_out.py
+# @File  : test_06out.py
 # @Author: Feng
 # @Date  : 2018/10/31
 # @Desc  :
@@ -27,6 +27,7 @@ from lib.case_log import log_case_info
 
 
 class PersonalProfile(unittest.TestCase):
+    u'''个人相关'''
 
     @classmethod
     def setUpClass(cls):

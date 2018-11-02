@@ -13,6 +13,7 @@ from lib.case_log import log_case_info
 
 
 class TestTask(unittest.TestCase):
+    u'''感谢信'''
 
     @classmethod
     def setUpClass(cls):
@@ -102,8 +103,8 @@ class TestTask(unittest.TestCase):
         self.assertEqual(res.status_code, expect_res)  # 断言
 
 
-    def test_05letter_save(self):
-        u'''查看感谢信年度排行榜'''
+    def test_06letter_save(self):
+        u'''发送感谢信'''
         case_data = get_test_data(self.data_list, 'test_user_letter_save')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
             logging.error("用例数据不存在")

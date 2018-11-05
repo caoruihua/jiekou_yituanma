@@ -15,7 +15,7 @@ header={
             }
 
 hearder2={  "User-Agent": "ESEN/1.3.11 (iPhone; iOS 12.1; Scale/2.00)",
-            "Authorization": "Bearer 7a744ecf-8271-43e2-b12f-e1b82196f62d",
+            "Authorization": "Bearer 7d6aa0af-daa1-492a-b580-dfa0103dc36c",
             "accept": "*/*",
             "accept-encoding": "gzip,deflate,br",
             "content-type": 'application/json',
@@ -27,7 +27,7 @@ hearder2={  "User-Agent": "ESEN/1.3.11 (iPhone; iOS 12.1; Scale/2.00)",
 
 
 hearder3={  "User-Agent": "ESEN/1.3.11 (iPhone; iOS 12.1; Scale/2.00)",
-            "Authorization": "Bearer 7a744ecf-8271-43e2-b12f-e1b82196f62d",
+            "Authorization": "Bearer 7d6aa0af-daa1-492a-b580-dfa0103dc36c",
             "accept": "*/*",
             "accept-encoding": "gzip,deflate,br",
             "content-type": 'application/x-www-form-urlencoded',
@@ -40,7 +40,7 @@ hearder3={  "User-Agent": "ESEN/1.3.11 (iPhone; iOS 12.1; Scale/2.00)",
 
 
 hearder4={  "User-Agent": "ESEN/1.3.11 (iPhone; iOS 12.1; Scale/2.00)",
-            "Authorization": "Basic bW9iaWxlX25hdGl2ZV9hcHA6NjF3NFUyenJjQjg4",
+            "Authorization": "Bearer Bearer 76921bff-21ea-45dd-a921-1555f02e20b4",
             "accept": "*/*",
             "accept-encoding": "gzip,deflate,br",
             "content-type": 'application/x-www-form-urlencoded',
@@ -50,9 +50,6 @@ hearder4={  "User-Agent": "ESEN/1.3.11 (iPhone; iOS 12.1; Scale/2.00)",
             'version':'1.3.11',
 
         }
-
-
-
 
 
 

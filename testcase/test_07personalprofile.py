@@ -129,7 +129,8 @@ class PersonalProfile(unittest.TestCase):
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
         res = requests.get(url=url,headers=hearder2)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
-        log_case_info('test_user_geren_avoid_relative', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
+        log_case_info('test_user_geren_avoid_relative', url, data, expect_res,
+                      json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
@@ -144,7 +145,8 @@ class PersonalProfile(unittest.TestCase):
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
         res = requests.get(url=url,headers=hearder2)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
-        log_case_info('test_user_geren_experience_list', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
+        log_case_info('test_user_geren_experience_list', url, data, expect_res,
+                      json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
@@ -158,8 +160,7 @@ class PersonalProfile(unittest.TestCase):
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
         res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
-        log_case_info('test_user_geren_career', url, data, expect_res,
-                      json.dumps(res.json(), ensure_ascii=False))
+        log_case_info('test_user_geren_career', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
@@ -173,8 +174,7 @@ class PersonalProfile(unittest.TestCase):
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
         res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
-        log_case_info('test_user_geren_skill_list', url, data, expect_res,
-                      json.dumps(res.json(), ensure_ascii=False))
+        log_case_info('test_user_geren_skill_list', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
@@ -206,8 +206,7 @@ class PersonalProfile(unittest.TestCase):
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
         res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
-        log_case_info('test_user_geren_certificate', url, data, expect_res,
-                      json.dumps(res.json(), ensure_ascii=False))
+        log_case_info('test_user_geren_certificate', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
@@ -221,8 +220,7 @@ class PersonalProfile(unittest.TestCase):
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
         res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
-        log_case_info('test_user_geren_train', url, data, expect_res,
-                      json.dumps(res.json(), ensure_ascii=False))
+        log_case_info('test_user_geren_train', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
@@ -236,8 +234,7 @@ class PersonalProfile(unittest.TestCase):
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
         res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
-        log_case_info('test_user_geren_contarct', url, data, expect_res,
-                      json.dumps(res.json(), ensure_ascii=False))
+        log_case_info('test_user_geren_contarct', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
@@ -253,8 +250,7 @@ class PersonalProfile(unittest.TestCase):
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
         res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
-        log_case_info('test_user_geren_base', url, data, expect_res,
-                      json.dumps(res.json(), ensure_ascii=False))
+        log_case_info('test_user_geren_base', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
@@ -269,8 +265,7 @@ class PersonalProfile(unittest.TestCase):
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
         res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
-        log_case_info('test_user_geren_jiaoyu', url, data, expect_res,
-                      json.dumps(res.json(), ensure_ascii=False))
+        log_case_info('test_user_geren_jiaoyu', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
@@ -286,8 +281,7 @@ class PersonalProfile(unittest.TestCase):
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
         res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
-        log_case_info('test_user_geren_jinjilianxi', url, data, expect_res,
-                      json.dumps(res.json(), ensure_ascii=False))
+        log_case_info('test_user_geren_jinjilianxi', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
@@ -301,8 +295,7 @@ class PersonalProfile(unittest.TestCase):
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
         res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
-        log_case_info('test_user_geren_zhiwuxinxi', url, data, expect_res,
-                      json.dumps(res.json(), ensure_ascii=False))
+        log_case_info('test_user_geren_zhiwuxinxi', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
@@ -316,8 +309,7 @@ class PersonalProfile(unittest.TestCase):
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
         res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
-        log_case_info('test_user_geren_conpetency', url, data, expect_res,
-                      json.dumps(res.json(), ensure_ascii=False))
+        log_case_info('test_user_geren_conpetency', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
@@ -332,8 +324,7 @@ class PersonalProfile(unittest.TestCase):
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
         res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
-        log_case_info('test_user_geren_project', url, data, expect_res,
-                      json.dumps(res.json(), ensure_ascii=False))
+        log_case_info('test_user_geren_project', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
@@ -347,8 +338,7 @@ class PersonalProfile(unittest.TestCase):
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
         res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
-        log_case_info('test_user_geren_adressbook', url, data, expect_res,
-                      json.dumps(res.json(), ensure_ascii=False))
+        log_case_info('test_user_geren_adressbook', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
@@ -363,8 +353,7 @@ class PersonalProfile(unittest.TestCase):
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
         res = requests.post(url=url, data=data.encode(),headers=hearder2)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
-        log_case_info('test_user_geren_addtag', url, data, expect_res,
-                      json.dumps(res.json(), ensure_ascii=False))
+        log_case_info('test_user_geren_addtag', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
@@ -378,8 +367,7 @@ class PersonalProfile(unittest.TestCase):
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
         res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
-        log_case_info('test_user_geren_guanzhu', url, data, expect_res,
-                      json.dumps(res.json(), ensure_ascii=False))
+        log_case_info('test_user_geren_guanzhu', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
@@ -393,8 +381,7 @@ class PersonalProfile(unittest.TestCase):
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
         res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
-        log_case_info('test_user_geren_join_invite', url, data, expect_res,
-                      json.dumps(res.json(), ensure_ascii=False))
+        log_case_info('test_user_geren_join_invite', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
@@ -409,8 +396,7 @@ class PersonalProfile(unittest.TestCase):
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
         res = requests.get(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
-        log_case_info('test_user_geren_join_record', url, data, expect_res,
-                      json.dumps(res.json(), ensure_ascii=False))
+        log_case_info('test_user_geren_join_record', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 

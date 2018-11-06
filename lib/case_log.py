@@ -4,7 +4,7 @@ sys.path.append('..')
 from config.config import *
 
 
-def log_case_info(case_name, url, data, expect_res, res):
+def log_case_info(case_name, url, data, expect_res, res, ensure_ascii=False):
     if isinstance(data,dict):
         data = json.dumps(data, ensure_ascii=False)  # 如果data是字典格式，转化为字符串
     logging.info("测试用例：{}".format(case_name))

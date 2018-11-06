@@ -109,7 +109,8 @@ class wxapp(unittest.TestCase):
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
         res = requests.post(url=url,data=data.encode(),headers=hearder3)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
-        log_case_info('test_wxapp_find_problem_jindu', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
+        log_case_info('test_wxapp_find_problem_jindu', url, data, expect_res,
+                      json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
@@ -124,7 +125,8 @@ class wxapp(unittest.TestCase):
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
         res = requests.post(url=url,data=data.encode(),headers=hearder3)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
-        log_case_info('test_wxapp_find_problem_remind', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
+        log_case_info('test_wxapp_find_problem_remind', url, data, expect_res,
+                      json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 

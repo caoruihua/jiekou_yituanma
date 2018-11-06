@@ -156,5 +156,8 @@ class TestTask(unittest.TestCase):
         log_case_info('test_user_reg_normal', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
+
+
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)  # 运行所有用例

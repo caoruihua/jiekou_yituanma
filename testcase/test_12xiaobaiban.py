@@ -1,7 +1,7 @@
 import unittest
 import requests
 import json
-import sys
+import sys,time
 
 sys.path.append("../..")  # 提升2级到项目根目录下
 from config.config import *  # 从项目路径下导入
@@ -269,19 +269,6 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
-    def test_22xiaobaiban_CRS_word(self):
-        u'''查看CRS'''
-        case_data = get_test_data(self.data_list, 'test_xiaobaiban_CRS_word')  # 从数据列表中查找到该用例数据
-        if not case_data:  # 有可能为None
-            logging.error("用例数据不存在")
-
-        url = case_data.get('url')  # excel中的标题也必须是小写url
-        data = case_data.get('data')
-        expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.post(url=url, data=data.encode(),headers=hearder2)
-        log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
-        self.assertEqual(res.status_code, expect_res)  # 断言
-
 
     def test_23xiaobaiban_log(self):
         u'''查看小白板日志'''
@@ -336,7 +323,7 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
-    def test_22xiaobaiban_remindself(self):
+    def test_26xiaobaiban_remindself(self):
         u'''小白板提醒自己'''
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_remindself')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
@@ -387,6 +374,39 @@ class TestXiaobaiban(unittest.TestCase):
         res = requests.get(url=url, headers=hearder2)
         log_case_info('test_xiaobaiban_tongzhi', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
+
+    def test_29xiaobaiban_badge(self):
+        u'''重置侧滑栏'''
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_badge')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url')  # excel中的标题也必须是小写url
+        data = case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        res = requests.get(url=url, headers=hearder2)
+        log_case_info('test_xiaobaiban_badge', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+
+    def test_30xiaobaiban_C_D(self):
+        u'''创建删除小白板'''
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_create_delete')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url')  # excel中的标题也必须是小写url
+        data = case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        res = requests.post(url=url,data=data.encode(), headers=hearder2)
+        time.sleep(2)
+        id=res.json()["id"] #动态获取id
+        res2=requests.get(url="https://gateway.workdesk.esenyun.com:9091/words/openapi/words/destroy/"+id+"?groupId=",headers=hearder2)
+        log_case_info('test_xiaobaiban_badge', url, data, expect_res, res2.text)
+        print(id)
+        self.assertEqual(res2.status_code, expect_res)  # 断言
+
+
+
 
 
 if __name__ == '__main__':

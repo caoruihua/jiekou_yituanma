@@ -178,6 +178,76 @@ class TestTask(unittest.TestCase):
         log_case_info('test_user_deletetask', url, data, expect_res1, res1.text)
         self.assertEqual(res.status_code, expect_res1)  # 断言
 
+    def test_11task_redo(self):
+        '''重新启动任务'''
+        case_data = get_test_data(self.data_list, 'test_task_redo')
+        if not case_data:
+            logging.error("用例数据不存在")
+        url = case_data.get('url')
+        data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
+        expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
+        res = requests.post(url=url,data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
+        log_case_info('test_task_redo', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
+        # 响应断言（整体断言）
+        self.assertEqual(res.status_code, expect_res)
+
+    def test_12task_cancel(self):
+        '''取消任务'''
+        case_data = get_test_data(self.data_list, 'test_task_cancel')
+        if not case_data:
+            logging.error("用例数据不存在")
+        url = case_data.get('url')
+        data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
+        expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
+        res = requests.post(url=url,data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
+        log_case_info('test_task_cancel', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
+        # 响应断言（整体断言）
+        self.assertEqual(res.status_code, expect_res)
+
+    def test_task_ok(self):
+        u'''任务审核通过'''
+        case_data = get_test_data(self.data_list, 'test_create_task')  # 创建任务的接口
+        case_data1=get_test_data(self.data_list, 'test_task_ok')  #删除任务的接口
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url') # excel中的标题也必须是小写url
+        data=case_data.get('data')
+
+        url1=case_data1.get('url')
+        data1=case_data1.get('data')
+
+        expect_res1 = case_data1.get('expect_res')  # 期望数据
+        res = requests.post(url=url, data=data.encode(), headers=hearder2)
+        taskid=res.json()["id"]
+        res1=requests.post(url=url1+taskid+"/action",data=data1.encode(),headers=hearder2)
+        log_case_info('test_user_ok', url, data, expect_res1, res1.text)
+        self.assertEqual(res1.status_code, expect_res1)  # 断言
+
+    def test_task_reject(self):
+        u'''任务审核不通过'''
+        case_data = get_test_data(self.data_list, 'test_create_task')  # 创建任务的接口
+        case_data1=get_test_data(self.data_list, 'test_task_reject')  #删除任务的接口
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url') # excel中的标题也必须是小写url
+        data=case_data.get('data')
+
+        url1=case_data1.get('url')
+        data1=case_data1.get('data')
+
+        expect_res1 = case_data1.get('expect_res')  # 期望数据
+        res = requests.post(url=url, data=data.encode(), headers=hearder2)
+        taskid=res.json()["id"]
+        res1=requests.post(url=url1+taskid+"/action",data=data1.encode(),headers=hearder2)
+        log_case_info('test_user_reject', url, data, expect_res1, res1.text)
+        self.assertEqual(res1.status_code, expect_res1)  # 断言
+
+
+
 
 
 if __name__ == '__main__':

@@ -375,7 +375,7 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_xiaobaiban_tongzhi', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
-    def test_29xiaobaiban_badge(self):
+    def test_30xiaobaiban_badge(self):
         u'''重置侧滑栏'''
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_badge')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
@@ -388,7 +388,7 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_xiaobaiban_badge', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
-    def test_30xiaobaiban_C_D(self):
+    def test_31xiaobaiban_C_D(self):
         u'''创建删除小白板'''
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_create_delete')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
@@ -404,6 +404,29 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_xiaobaiban_badge', url, data, expect_res, res2.text)
         print(id)
         self.assertEqual(res2.status_code, expect_res)  # 断言
+
+    def test_31xiaobaiban_deletePinglun(self):
+        u'''创建删除小白板'''
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_create_common')  # 从数据列表中查找到该用例数据
+        case_data1 = get_test_data(self.data_list, 'test_xiaobaiban_delete_common')
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url')  #创建数据接口
+        data = case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+
+        url1 = case_data1.get('url')  # 删除数据接口
+        data1 = case_data1.get('data')
+        expect_res1 = case_data.get('expect_res')  # 期望数据
+
+        res = requests.post(url=url,data=data.encode(), headers=hearder2)
+        time.sleep(2)
+        id=res.json()["id"] #动态获取id
+        res2=requests.get(url=url1+id+"?groupId=",headers=hearder2)
+        log_case_info('test_deleteconment', url1, data1, expect_res1, res2.text)
+        print(id)
+        self.assertEqual(res.status_code, expect_res)  # 断言
 
 
 

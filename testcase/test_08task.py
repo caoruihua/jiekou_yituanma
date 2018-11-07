@@ -247,6 +247,27 @@ class TestTask(unittest.TestCase):
         self.assertEqual(res1.status_code, expect_res1)  # 断言
 
 
+    def test_task_finish(self):
+        u'''关闭任务'''
+        case_data = get_test_data(self.data_list, 'test_create_task')  # 创建任务的接口
+        case_data1=get_test_data(self.data_list, 'test_task_finish')  #删除任务的接口
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url') # excel中的标题也必须是小写url
+        data=case_data.get('data')
+
+        url1=case_data1.get('url')
+        data1=case_data1.get('data')
+
+        expect_res1 = case_data1.get('expect_res')  # 期望数据
+        res = requests.post(url=url, data=data.encode(), headers=hearder2)
+        taskid=res.json()["id"]
+        res1=requests.post(url=url1+taskid+"/action",data=data1.encode(),headers=hearder2)
+        log_case_info('test_user_reject', url, data, expect_res1, res1.text)
+        self.assertEqual(res1.status_code, expect_res1)  # 断言
+
+
 
 
 

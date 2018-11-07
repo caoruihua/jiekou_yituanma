@@ -21,6 +21,7 @@ from lib.case_log import log_case_info
 
 
 class Account(unittest.TestCase):
+    u'''账户相关'''
 
     @classmethod
     def setUpClass(cls):

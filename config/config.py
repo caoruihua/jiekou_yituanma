@@ -6,7 +6,7 @@ import time
 header={
             "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) "
                           "Chrome/70.0.3538.77 Safari/537.36",
-            "Authorization": "Bearer 91624eec-4c0f-402c-bbda-bfc132cc1e32",
+            "Authorization": "Bearer ede02671-a135-4477-b56f-b1271d31170f",
             "accept": "application/json,text/plain,*/*",
             "accept-encoding": "gzip,deflate,br",
             "content-type": 'application/json',
@@ -15,7 +15,7 @@ header={
             }
 
 hearder2={  "User-Agent": "ESEN/1.3.11 (iPhone; iOS 12.1; Scale/2.00)",
-            "Authorization": "Bearer 9ef56489-115e-4c7c-b34b-c310158ca40e",
+            "Authorization": "Bearer ede02671-a135-4477-b56f-b1271d31170f",
             "accept": "*/*",
             "accept-encoding": "gzip,deflate,br",
             "content-type": 'application/json',
@@ -27,7 +27,7 @@ hearder2={  "User-Agent": "ESEN/1.3.11 (iPhone; iOS 12.1; Scale/2.00)",
 
 
 hearder3={  "User-Agent": "ESEN/1.3.11 (iPhone; iOS 12.1; Scale/2.00)",
-            "Authorization": "Bearer 9ef56489-115e-4c7c-b34b-c310158ca40e",
+            "Authorization": "Bearer ede02671-a135-4477-b56f-b1271d31170f",
             "accept": "*/*",
             "accept-encoding": "gzip,deflate,br",
             "content-type": 'application/x-www-form-urlencoded',
@@ -40,7 +40,7 @@ hearder3={  "User-Agent": "ESEN/1.3.11 (iPhone; iOS 12.1; Scale/2.00)",
 
 
 hearder4={  "User-Agent": "ESEN/1.3.11 (iPhone; iOS 12.1; Scale/2.00)",
-            "Authorization": "Bearer 9ef56489-115e-4c7c-b34b-c310158ca40e",
+            "Authorization": "Bearer ede02671-a135-4477-b56f-b1271d31170f",
             "accept": "*/*",
             "accept-encoding": "gzip,deflate,br",
             "content-type": 'application/x-www-form-urlencoded',

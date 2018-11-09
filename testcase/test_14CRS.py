@@ -254,7 +254,7 @@ class CRS(unittest.TestCase):
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
-    def test_17CRS_customr_tasklist(self):
+    def test_17CRS_customr_record(self):
         u'''添加客户服务记录'''
         case_data = get_test_data(self.data_list, 'test_CRS_customer_record')
         if not case_data:
@@ -268,7 +268,7 @@ class CRS(unittest.TestCase):
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
-    def test_17CRS_relitu(self):
+    def test_18CRS_relitu(self):
         u'''热力图'''
         case_data = get_test_data(self.data_list, 'test_CRS_relitu')
         if not case_data:

@@ -45,6 +45,7 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
+
     def test_03xiaobaiban_cainajianyi(self):
         u'''采纳建议'''
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_cainajianyi')  # 从数据列表中查找到该用例数据
@@ -426,6 +427,20 @@ class TestXiaobaiban(unittest.TestCase):
         res2=requests.get(url=url1+id+"?groupId=",headers=hearder2)
         log_case_info('test_deleteconment', url1, data1, expect_res1, res2.text)
         print(id)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+
+    def test_032xiaobaiban_coment(self):
+        u'''小白板评论上传图片'''
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_coment_picture')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url')  # excel中的标题也必须是小写url
+        data = case_data.get('data')  # 注意字符串格式，需要用json.loads()转化为字典格式
+        expect_res = case_data.get('expect_res')  # 期望数据
+
+        res = requests.post(url=url, data=data.encode(), headers=hearder2)
+        log_case_info('ttest_xiaobaiban_coment_picture', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
 

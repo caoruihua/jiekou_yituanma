@@ -429,7 +429,8 @@ class TestXiaobaiban(unittest.TestCase):
         print(id)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
-    def test_032xiaobaiban_coment(self):
+
+    def test_32xiaobaiban_coment(self):
         u'''小白板评论上传图片'''
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_coment_picture')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
@@ -443,8 +444,7 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('ttest_xiaobaiban_coment_picture', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
-
-    def test_32xiaobaiban_tongzhi(self):
+    def test_33xiaobaiban_tongzhi(self):
         u'''小白板标签相关'''
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_markers')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
@@ -456,6 +456,8 @@ class TestXiaobaiban(unittest.TestCase):
         res = requests.post(url=url,data=data.encode(), headers=hearder2)
         log_case_info('test_xiaobaiban_markers', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
+
+
 
 
 

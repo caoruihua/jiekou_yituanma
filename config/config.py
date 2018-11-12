@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import logging
 import os
 import time
@@ -6,7 +7,7 @@ import time
 header={
             "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) "
                           "Chrome/70.0.3538.77 Safari/537.36",
-            "Authorization": "Bearer 8f404fca-4157-42b3-ab4e-bc8ea762a4a0",
+            "Authorization": "Bearer ea2ac64c-3dc1-4c41-8e48-9a1fef46fc49",
             "accept": "application/json,text/plain,*/*",
             "accept-encoding": "gzip,deflate,br",
             "content-type": 'application/json',
@@ -15,7 +16,7 @@ header={
             }
 
 hearder2={  "User-Agent": "ESEN/1.3.11 (iPhone; iOS 12.1; Scale/2.00)",
-            "Authorization": "Bearer 8f404fca-4157-42b3-ab4e-bc8ea762a4a0",
+            "Authorization": "Bearer ea2ac64c-3dc1-4c41-8e48-9a1fef46fc49",
             "accept": "*/*",
             "accept-encoding": "gzip,deflate,br",
             "content-type": 'application/json',
@@ -27,7 +28,7 @@ hearder2={  "User-Agent": "ESEN/1.3.11 (iPhone; iOS 12.1; Scale/2.00)",
 
 
 hearder3={  "User-Agent": "ESEN/1.3.11 (iPhone; iOS 12.1; Scale/2.00)",
-            "Authorization": "Bearer 8f404fca-4157-42b3-ab4e-bc8ea762a4a0",
+            "Authorization": "Bearer ea2ac64c-3dc1-4c41-8e48-9a1fef46fc49",
             "accept": "*/*",
             "accept-encoding": "gzip,deflate,br",
             "content-type": 'application/x-www-form-urlencoded',
@@ -40,7 +41,7 @@ hearder3={  "User-Agent": "ESEN/1.3.11 (iPhone; iOS 12.1; Scale/2.00)",
 
 
 hearder4={  "User-Agent": "ESEN/1.3.11 (iPhone; iOS 12.1; Scale/2.00)",
-            "Authorization": "Bearer 8f404fca-4157-42b3-ab4e-bc8ea762a4a0",
+            "Authorization": "Bearer ea2ac64c-3dc1-4c41-8e48-9a1fef46fc49",
             "accept": "*/*",
             "accept-encoding": "gzip,deflate,br",
             "content-type": 'application/x-www-form-urlencoded',
@@ -61,14 +62,15 @@ test_path = os.path.join(prj_path, 'testcase')   # 用例目录
 now = time.strftime('%y-%m-%d_%H_%M', time.localtime(time.time()))
 
 log_file = os.path.join(prj_path, "log", now+'log.log')  # 更改路径到log目录下
-report_file = os.path.join(prj_path, 'report', 'report.html')  # 更改路径到report目录下
+report_file = os.path.join(prj_path, 'report', 'report.html')  # 更改路径到report目录
 
 # log配置
 logging.basicConfig(level=logging.DEBUG,  # log level
                     format='[%(asctime)s] %(levelname)s [%(funcName)s: %(filename)s, %(lineno)d] %(message)s',  # log格式
                     datefmt='%Y-%m-%d %H:%M:%S',  # 日期格式
                     filename=log_file,  # 日志输出文件
-                    filemode='a')  # 追加模式
+                    filemode='a',
+                    )  # 追加模式
 
 
 # 数据库配置

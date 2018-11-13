@@ -6,58 +6,56 @@
 # @Desc  :
 
 
-import unittest
-import requests
 import json
 import sys
-import os
+import unittest
+
+import requests
+
 sys.path.append('../..')
 
-from config.config import *
 from lib.db import *
 from lib.read_excel import *
 from lib.case_log import log_case_info
 
 
-
 class CRS(unittest.TestCase):
-    u'''客户管理'''
+    u"""客户管理"""
 
     @classmethod
     def setUpClass(cls):
         cls.data_list = excel_to_list(os.path.join(data_path, "test_user_data.xlsx"), "CRS")  # 读取TestUserReg工作簿的所有数据
 
     def test_01CRS_Customer(self):
-        u'''客户列表'''
+        u"""客户列表"""
         case_data = get_test_data(self.data_list, 'test_CRS_Customer')
         if not case_data:
             logging.error("用例数据不存在")
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url,data=data.encode(),headers=hearder2)  # 用data=data 传字符串也可以
+        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_CRS_Customer', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
-
     def test_02CRS_Customer_Datail(self):
-        u'''客户详情'''
+        u"""客户详情"""
         case_data = get_test_data(self.data_list, 'test_CRS_CustomerDatail')
         if not case_data:
             logging.error("用例数据不存在")
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url,data=data.encode(),headers=hearder2)  # 用data=data 传字符串也可以
+        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_CRS_CustomerDatail', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
     def test_03CRS_Customer_Feedback(self):
-        u'''客户反馈'''
+        u"""客户反馈"""
         case_data = get_test_data(self.data_list, 'test_CRS_CustomerFeedback')
         if not case_data:
             logging.error("用例数据不存在")
@@ -70,23 +68,22 @@ class CRS(unittest.TestCase):
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
-
     def test_04CRS_Customer_create(self):
-        u'''创建客户'''
+        u"""创建客户"""
         case_data = get_test_data(self.data_list, 'test_CRS_Customer_Create')
         if not case_data:
             logging.error("用例数据不存在")
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(),headers=hearder2)  # 用data=data 传字符串也可以
+        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_CRS_Customer_Create', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
     def test_05CRS_Customer_Area(self):
-        u'''客户所在地域'''
+        u"""客户所在地域"""
         case_data = get_test_data(self.data_list, 'test_CRS_Customer_Area')
         if not case_data:
             logging.error("用例数据不存在")
@@ -100,7 +97,7 @@ class CRS(unittest.TestCase):
         self.assertEqual(res.status_code, expect_res)
 
     def test_06CRS_Customer_level(self):
-        u'''客户登记'''
+        u"""客户登记"""
         case_data = get_test_data(self.data_list, 'test_CRS_levellist')
         if not case_data:
             logging.error("用例数据不存在")
@@ -114,7 +111,7 @@ class CRS(unittest.TestCase):
         self.assertEqual(res.status_code, expect_res)
 
     def test_07CRS_SourceList(self):
-        u'''客户获取渠道'''
+        u"""客户获取渠道"""
         case_data = get_test_data(self.data_list, 'test_CRS_sourcelist')
         if not case_data:
             logging.error("用例数据不存在")
@@ -128,7 +125,7 @@ class CRS(unittest.TestCase):
         self.assertEqual(res.status_code, expect_res)
 
     def test_08CRS_TradeList(self):
-        u'''客户领域'''
+        u"""客户领域"""
         case_data = get_test_data(self.data_list, 'test_CRS_tradelist')
         if not case_data:
             logging.error("用例数据不存在")
@@ -142,64 +139,63 @@ class CRS(unittest.TestCase):
         self.assertEqual(res.status_code, expect_res)
 
     def test_09CRS_contact(self):
-        u'''CRS-联系人'''
+        u"""CRS-联系人"""
         case_data = get_test_data(self.data_list, 'test_CRS_contact')
         if not case_data:
             logging.error("用例数据不存在")
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url,data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_CRS_contact', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
     def test_10CRS_contact_create(self):
-        u'''CRS-创建联系人'''
+        u"""CRS-创建联系人"""
         case_data = get_test_data(self.data_list, 'test_CRS_contact_Create')
         if not case_data:
             logging.error("用例数据不存在")
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url,data=data.encode(),headers=hearder2)  # 用data=data 传字符串也可以
+        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_CRS_contact_Create', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
     def test_11CRS_market(self):
-        u'''查看市场信息'''
+        u"""查看市场信息"""
         case_data = get_test_data(self.data_list, 'test_CRS_market')
         if not case_data:
             logging.error("用例数据不存在")
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url,data=data.encode(),headers=hearder2)  # 用data=data 传字符串也可以
+        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_CRS_market', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
-
     def test_12CRS_market_create(self):
-        u'''CRS-创建市场信息'''
+        u"""CRS-创建市场信息"""
         case_data = get_test_data(self.data_list, 'test_CRS_market_create')
         if not case_data:
             logging.error("用例数据不存在")
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url,data=data.encode(),headers=hearder2)  # 用data=data 传字符串也可以
+        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_CRS_market_create', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
     def test_13CRS_SPM_shangji(self):
-        u'''销售商机'''
+        u"""销售商机"""
         case_data = get_test_data(self.data_list, 'test_CRS_spm_shangji')
         if not case_data:
             logging.error("用例数据不存在")
@@ -213,7 +209,7 @@ class CRS(unittest.TestCase):
         self.assertEqual(res.status_code, expect_res)
 
     def test_14CRS_SPM_xiansuo(self):
-        u'''查看销售线索'''
+        u"""查看销售线索"""
         case_data = get_test_data(self.data_list, 'test_CRS_spm_xiansuo')
         if not case_data:
             logging.error("用例数据不存在")
@@ -227,7 +223,7 @@ class CRS(unittest.TestCase):
         self.assertEqual(res.status_code, expect_res)
 
     def test_15CRS_customr_teammber(self):
-        u'''查看负责客户的任务'''
+        u"""查看负责客户的任务"""
         case_data = get_test_data(self.data_list, 'test_CRS_customer_teammember')
         if not case_data:
             logging.error("用例数据不存在")
@@ -236,12 +232,12 @@ class CRS(unittest.TestCase):
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
         res = requests.get(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
-        log_case_info('test_CRS_customer_teammber', url, data, expect_res, json.dumps(res.json()),ensure_ascii=False)
+        log_case_info('test_CRS_customer_teammber', url, data, expect_res, json.dumps(res.json()), ensure_ascii=False)
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
     def test_16CRS_customr_tasklist(self):
-        u'''查看负责客户的任务'''
+        u"""查看负责客户的任务"""
         case_data = get_test_data(self.data_list, 'test_CRS_customer_tasklist')
         if not case_data:
             logging.error("用例数据不存在")
@@ -250,12 +246,12 @@ class CRS(unittest.TestCase):
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
         res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
-        log_case_info('test_CRS_customer_tasklist', url, data, expect_res, json.dumps(res.json()),ensure_ascii=False)
+        log_case_info('test_CRS_customer_tasklist', url, data, expect_res, json.dumps(res.json()), ensure_ascii=False)
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
     def test_17CRS_customr_record(self):
-        u'''添加客户服务记录'''
+        u"""添加客户服务记录"""
         case_data = get_test_data(self.data_list, 'test_CRS_customer_record')
         if not case_data:
             logging.error("用例数据不存在")
@@ -269,7 +265,7 @@ class CRS(unittest.TestCase):
         self.assertEqual(res.status_code, expect_res)
 
     def test_18CRS_relitu(self):
-        u'''热力图'''
+        u"""热力图"""
         case_data = get_test_data(self.data_list, 'test_CRS_relitu')
         if not case_data:
             logging.error("用例数据不存在")
@@ -281,7 +277,6 @@ class CRS(unittest.TestCase):
         log_case_info('test_CRS_relitu', url, data, expect_res, json.dumps(res.json()), ensure_ascii=False)
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
-
 
 
 if __name__ == '__main__':

@@ -19,7 +19,7 @@ from lib.case_log import log_case_info
 
 
 class WebJieKou(unittest.TestCase):
-    u"""h5相关"""
+    u"""Webview相关"""
 
     @classmethod
     def setUpClass(cls):

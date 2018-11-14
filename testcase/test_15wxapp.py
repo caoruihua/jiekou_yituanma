@@ -61,7 +61,7 @@ class wxapp(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        res = requests.post(url=url, data=data.encode(), headers=hearder4)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_wxapp_subscribe', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -81,46 +81,121 @@ class wxapp(unittest.TestCase):
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
-    def test_05wxapp_find_problem(self):
+    def test_05wxapp_Detail(self):
         u"""吐槽详情查看"""
-        case_data = get_test_data(self.data_list, 'test_wxapp_findproblem')
+        case_data = get_test_data(self.data_list, 'test_wxapp_detail')
         if not case_data:
             logging.error("用例数据不存在")
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder3)  # 用data=data 传字符串也可以
+        res = requests.post(url=url, data=data.encode(), headers=hearder4)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
-        log_case_info('test_wxapp_find_problem', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
+        log_case_info('test_wxapp_detail', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
-    def test_06wxapp_find_problem_jindu(self):
-        u"""吐槽进度"""
-        case_data = get_test_data(self.data_list, 'test_wxapp_findproblem_jindu')
+    def test_07wxapp_ServicesTeam(self):
+        u"""吐槽服务团队详情"""
+        case_data = get_test_data(self.data_list, 'test_wxapp_ServiceTeam')
         if not case_data:
             logging.error("用例数据不存在")
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder3)  # 用data=data 传字符串也可以
+        res = requests.post(url=url, data=data.encode(), headers=hearder4)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
-        log_case_info('test_wxapp_find_problem_jindu', url, data, expect_res,
+        log_case_info('test_wxapp_ServiceTeam', url, data, expect_res,
                       json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
-    def test_07wxapp_find_problem_remind(self):
-        u"""吐槽进度"""
-        case_data = get_test_data(self.data_list, 'test_wxapp_findproblem_remind')
+    def test_08wxapp_Feedback_follow(self):
+        u"""吐槽回复记录"""
+        case_data = get_test_data(self.data_list, 'test_wxapp_feedback_follow')
         if not case_data:
             logging.error("用例数据不存在")
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder3)  # 用data=data 传字符串也可以
+        res = requests.post(url=url, data=data.encode(), headers=hearder4)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
-        log_case_info('test_wxapp_find_problem_remind', url, data, expect_res,
+        log_case_info('test_wxapp_feedback_follow', url, data, expect_res,
+                      json.dumps(res.json(), ensure_ascii=False))
+        # 响应断言（整体断言）
+        self.assertEqual(res.status_code, expect_res)
+
+    def test_09wxapp_Tucao_team(self):
+        u"""吐槽技术服务团队接口"""
+        case_data = get_test_data(self.data_list, 'test_wxapp_feedback_vcards')
+        if not case_data:
+            logging.error("用例数据不存在")
+        url = case_data.get('url')
+        data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
+        expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
+        res = requests.post(url=url, data=data.encode(), headers=hearder4)  # 用data=data 传字符串也可以
+        # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
+        log_case_info('test_wxapp_feedback_vcards', url, data, expect_res,
+                      json.dumps(res.json(), ensure_ascii=False))
+        # 响应断言（整体断言）
+        self.assertEqual(res.status_code, expect_res)
+
+    def test_10wxapp_Tucao_Product(self):
+        u"""吐槽产品关联接口"""
+        case_data = get_test_data(self.data_list, 'test_wxapp_feedback_Product')
+        if not case_data:
+            logging.error("用例数据不存在")
+        url = case_data.get('url')
+        data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
+        expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
+        res = requests.post(url=url, data=data.encode(), headers=hearder4)  # 用data=data 传字符串也可以
+        # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
+        log_case_info('test_wxapp_feedback_Product', url, data, expect_res,
+                      json.dumps(res.json(), ensure_ascii=False))
+        # 响应断言（整体断言）
+        self.assertEqual(res.status_code, expect_res)
+
+    def test_11wxapp_Tucao_ProductInfo(self):
+        u"""吐槽关联产品详情接口"""
+        case_data = get_test_data(self.data_list, 'test_wxapp_feedback_ProductInfo')
+        if not case_data:
+            logging.error("用例数据不存在")
+        url = case_data.get('url')
+        data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
+        expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
+        res = requests.post(url=url, data=data.encode(), headers=hearder4)  # 用data=data 传字符串也可以
+        # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
+        log_case_info('test_wxapp_feedback_ProductInfo', url, data, expect_res,
+                      json.dumps(res.json(), ensure_ascii=False))
+        # 响应断言（整体断言）
+        self.assertEqual(res.status_code, expect_res)
+
+    def test_12wxapp_Badge_Span(self):
+        u"""相关标签元素接口"""
+        case_data = get_test_data(self.data_list, 'test_wxapp_badge_span')
+        if not case_data:
+            logging.error("用例数据不存在")
+        url = case_data.get('url')
+        data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
+        expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
+        res = requests.get(url=url, data=data.encode(), headers=hearder4)  # 用data=data 传字符串也可以
+        # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
+        log_case_info('test_wxapp_badge_span', url, data, expect_res,
+                      json.dumps(res.json(), ensure_ascii=False))
+        # 响应断言（整体断言）
+        self.assertEqual(res.status_code, expect_res)
+
+    def test_13wxapp_Feedback_Solution(self):
+        u"""吐槽负责人员接口"""
+        case_data = get_test_data(self.data_list, 'test_wxapp_badge_solution')
+        if not case_data:
+            logging.error("用例数据不存在")
+        url = case_data.get('url')
+        data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
+        expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
+        res = requests.get(url=url, data=data.encode(), headers=hearder4)  # 用data=data 传字符串也可以
+        # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
+        log_case_info('test_wxapp_badge_solution', url, data, expect_res,
                       json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)

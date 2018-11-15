@@ -140,5 +140,6 @@ class Account(unittest.TestCase):
         self.assertEqual(res.status_code, expect_res)
 
 
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)  # 运行所有用例

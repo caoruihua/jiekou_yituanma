@@ -480,6 +480,59 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_xiaobaiban_mycreate', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
+    def test_36xiaobaiban_Dashboard_Myreply(self):
+        u"""我回复的小白板数据"""
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_myreply')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url')  # excel中的标题也必须是小写url
+        data = case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        res = requests.get(url=url, data=data.encode(), headers=hearder2)
+        log_case_info('test_xiaobaiban_myreplay', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+
+    def test_37xiaobaiban_Dashboard_Mycollect(self):
+        u"""我收藏的小白板数据"""
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_mycollect')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url')  # excel中的标题也必须是小写url
+        data = case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        res = requests.get(url=url, data=data.encode(), headers=hearder2)
+        log_case_info('test_xiaobaiban_mycollect', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+
+    def test_38xiaobaiban_Dashboard_Myjoin(self):
+        u"""我参与的小白板数据"""
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_myjoin')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url')  # excel中的标题也必须是小写url
+        data = case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        res = requests.get(url=url, data=data.encode(), headers=hearder2)
+        log_case_info('test_xiaobaiban_myjoin', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+
+    def test_39xiaobaiban_Dashboard_at_my(self):
+        u"""@我的小白板数据"""
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_at_my')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url')  # excel中的标题也必须是小写url
+        data = case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        res = requests.get(url=url, data=data.encode(), headers=hearder2)
+        log_case_info('test_xiaobaiban_at_my', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)

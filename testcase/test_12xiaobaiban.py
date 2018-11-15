@@ -405,7 +405,7 @@ class TestXiaobaiban(unittest.TestCase):
         self.assertEqual(res2.status_code, expect_res)  # 断言
 
     def test_31xiaobaiban_deletePinglun(self):
-        u"""创建删除小白板"""
+        u"""创建删除评论"""
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_create_common')  # 从数据列表中查找到该用例数据
         case_data1 = get_test_data(self.data_list, 'test_xiaobaiban_delete_common')
         if not case_data:  # 有可能为None
@@ -532,6 +532,57 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_xiaobaiban_at_my', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
+    def test_40xiaobaiban_combline(self):
+        u"""新建小白板标签选择页面"""
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_combline')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url')  # excel中的标题也必须是小写url
+        data = case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        res = requests.post(url=url, data=data.encode(), headers=hearder2)
+        log_case_info('test_xiaobaiban_combline', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+
+    def test_41xiaobaiban_Update(self):
+        u"""小白板更新"""
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_update')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url')  # excel中的标题也必须是小写url
+        data = case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        res = requests.post(url=url, data=data.encode(), headers=hearder2)
+        log_case_info('test_xiaobaiban_update', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+
+    def test_42xiaobaiban_Caogao(self):
+        u"""小白板草稿箱"""
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_caogao')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url')  # excel中的标题也必须是小写url
+        data = case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        res = requests.post(url=url, data=data.encode(), headers=hearder2)
+        log_case_info('test_xiaobaiban_caogao', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+
+    def test_42xiaobaiban_JielunCaogao(self):
+        u"""结论草稿箱"""
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_jieluncaogao')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url')  # excel中的标题也必须是小写url
+        data = case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        res = requests.post(url=url, data=data.encode(), headers=hearder2)
+        log_case_info('test_xiaobaiban_jieluncaogao', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
 
 
 if __name__ == '__main__':

@@ -7,7 +7,7 @@ import time
 header = {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) "
                   "Chrome/70.0.3538.77 Safari/537.36",
-    "Authorization": "Bearer d496cd6f-95ee-4668-b320-0d7e6f8baf0e",
+    "Authorization": "Bearer 24752447-f984-4d5b-882f-efc2748897ad",
     "accept": "application/json,text/plain,*/*",
     "accept-encoding": "gzip,deflate,br",
     "content-type": 'application/json',
@@ -16,7 +16,7 @@ header = {
 }
 
 hearder2 = {"User-Agent": "ESEN/1.3.11 (iPhone; iOS 12.1; Scale/2.00)",
-            "Authorization": "Bearer d496cd6f-95ee-4668-b320-0d7e6f8baf0e",
+            "Authorization": "Bearer 24752447-f984-4d5b-882f-efc2748897ad",
             "accept": "*/*",
             "accept-encoding": "gzip,deflate,br",
             "content-type": 'application/json',
@@ -27,7 +27,7 @@ hearder2 = {"User-Agent": "ESEN/1.3.11 (iPhone; iOS 12.1; Scale/2.00)",
             }
 
 hearder3 = {"User-Agent": "ESEN/1.3.11 (iPhone; iOS 12.1; Scale/2.00)",
-            "Authorization": "Bearer d496cd6f-95ee-4668-b320-0d7e6f8baf0e",
+            "Authorization": "Bearer 24752447-f984-4d5b-882f-efc2748897ad",
             "accept": "*/*",
             "accept-encoding": "gzip,deflate,br",
             "content-type": 'application/x-www-form-urlencoded',
@@ -42,7 +42,7 @@ hearder3 = {"User-Agent": "ESEN/1.3.11 (iPhone; iOS 12.1; Scale/2.00)",
 hearder4 = {
     "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 12_1_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) "
                   "Mobile/16C5043b MicroMessenger/6.7.3(0x16070321) NetType/4G Language/zh_CN",
-    "Authorization": "Bearer d496cd6f-95ee-4668-b320-0d7e6f8baf0e",
+    "Authorization": "Bearer 24752447-f984-4d5b-882f-efc2748897ad",
     "accept": "*/*",
     "accept-encoding": "gzip,deflate,br",
     "content-type": 'application/json',
@@ -51,6 +51,7 @@ hearder4 = {
     'referer': 'https://servicewechat.com/wx3bc009c34c8a1040/19/page-frame.html',
 
 }
+
 
 # 日志路径配置
 prj_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # 当前文件的上一级的上一级目录（增加一级）

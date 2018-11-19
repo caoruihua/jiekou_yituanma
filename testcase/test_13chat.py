@@ -115,14 +115,15 @@ class Chat(unittest.TestCase):
         case_data1 = get_test_data(self.data_list, 'test_chat_ChangeOnwer')
         url1 = case_data1.get('url')
         expect_res1 = case_data1.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
+        data1 = case_data1.get('data')
+        dict = json.loads(data1)
 
         res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
         id = res.json()["imGroupId"]
-        data2 = {"groupId": id, "leave": False, "owner": "8a9d3ed0609d0e200160f7a3dcae0003",
-                 "newOwner": "2c9483986368e0fc016396be21be0000"}
-        res1 = requests.post(url=url1, data=json.dumps(data2), headers=hearder2)
+        dict['groupId'] = id
+        res1 = requests.post(url=url1, data=json.dumps(dict), headers=hearder2)
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
-        log_case_info('test_chat_leave', url1, data2, expect_res1, json.dumps(res1.json(), ensure_ascii=False))
+        log_case_info('test_chat_leave', url1, dict, expect_res1, json.dumps(res1.json(), ensure_ascii=False))
         #   响应断言（整体断言）
         self.assertEqual(res1.status_code, expect_res1)
 

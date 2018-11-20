@@ -12,6 +12,8 @@ import unittest
 
 import requests
 
+from lib.util import Login
+
 sys.path.append('../..')
 
 from lib.db import *
@@ -25,6 +27,7 @@ class CRS(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.data_list = excel_to_list(os.path.join(data_path, "test_user_data.xlsx"), "CRS")  # 读取TestUserReg工作簿的所有数据
+        cls.header7=Login.head()
 
     def test_01CRS_Customer(self):
         u"""客户列表"""
@@ -34,7 +37,8 @@ class CRS(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8=self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_CRS_Customer', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -48,7 +52,8 @@ class CRS(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_CRS_CustomerDatail', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -62,7 +67,8 @@ class CRS(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_CRS_Customerfeedback', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -76,7 +82,8 @@ class CRS(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_CRS_Customer_Create', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -90,7 +97,8 @@ class CRS(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_CRS_Customer_Area', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -104,7 +112,8 @@ class CRS(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_CRS_levellist', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -118,7 +127,8 @@ class CRS(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_CRS_sourcelist', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -132,7 +142,8 @@ class CRS(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_CRS_tradelist', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -146,7 +157,8 @@ class CRS(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_CRS_contact', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -166,10 +178,10 @@ class CRS(unittest.TestCase):
         url1 = case_data1.get('url')
         data1 = case_data1.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res1 = case_data1.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         id = res.json()["id"]  # 获取创建的id
-        res1 = requests.delete(url=url1 + id, data=data1.encode(), headers=hearder2)
+        res1 = requests.delete(url=url1 + id, data=data1.encode(), headers=header8)
         log_case_info('test_CRS_contact_create', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
 
         log_case_info('test_CRS_contact_detele', url1 + id, data1, expect_res1, res1.text)
@@ -185,7 +197,8 @@ class CRS(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_CRS_market', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -199,7 +212,8 @@ class CRS(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_CRS_market_create', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -213,7 +227,8 @@ class CRS(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_CRS_spms_hangji', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -227,7 +242,8 @@ class CRS(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_CRS_spm_xiansuo', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -241,7 +257,8 @@ class CRS(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_CRS_customer_teammber', url, data, expect_res, json.dumps(res.json()), ensure_ascii=False)
         # 响应断言（整体断言）
@@ -255,7 +272,8 @@ class CRS(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_CRS_customer_tasklist', url, data, expect_res, json.dumps(res.json()), ensure_ascii=False)
         # 响应断言（整体断言）
@@ -269,7 +287,8 @@ class CRS(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_CRS_customer_record', url, data, expect_res, json.dumps(res.json()), ensure_ascii=False)
         # 响应断言（整体断言）
@@ -283,7 +302,8 @@ class CRS(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_CRS_relitu', url, data, expect_res, json.dumps(res.json()), ensure_ascii=False)
         # 响应断言（整体断言）
@@ -297,7 +317,8 @@ class CRS(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_CRS_cus_level', url, data, expect_res, json.dumps(res.json()), ensure_ascii=False)
         # 响应断言（整体断言）
@@ -311,7 +332,8 @@ class CRS(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_CRS_cus_level_list', url, data, expect_res, json.dumps(res.json()), ensure_ascii=False)
         # 响应断言（整体断言）
@@ -325,7 +347,8 @@ class CRS(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_CRS_cus_master_permission', url, data, expect_res, json.dumps(res.json()),
                       ensure_ascii=False)
@@ -340,7 +363,8 @@ class CRS(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_CRS_cus_my_cus', url, data, expect_res, json.dumps(res.json()), ensure_ascii=False)
         # 响应断言（整体断言）
@@ -360,10 +384,11 @@ class CRS(unittest.TestCase):
         url1 = case_data1.get('url')
         data1 = case_data1.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res1 = case_data1.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
+        header8 = self.header7
 
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         id = res.json()["id"]  # 获取创建的id
-        res1 = requests.delete(url=url1 + id, data=data1.encode(), headers=hearder2)
+        res1 = requests.delete(url=url1 + id, data=data1.encode(), headers=header8)
         log_case_info('test_CRS_source_create', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
 
         log_case_info('test_CRS_source_delete', url1 + id, data1, expect_res1, res1.text)
@@ -385,10 +410,11 @@ class CRS(unittest.TestCase):
         url1 = case_data1.get('url')
         data1 = case_data1.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res1 = case_data1.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
+        header8 = self.header7
 
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         id = res.json()["id"]  # 获取创建的id
-        res1 = requests.delete(url=url1 + id, data=data1.encode(), headers=hearder2)
+        res1 = requests.delete(url=url1 + id, data=data1.encode(), headers=header8)
         log_case_info('test_CRS_cus_create', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
 
         log_case_info('test_CRS_cus_delete', url1 + id, data1, expect_res1, res1.text)

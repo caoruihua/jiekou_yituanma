@@ -11,6 +11,8 @@ import unittest
 
 import requests
 
+from lib.util import Login
+
 sys.path.append('../..')
 
 from lib.db import *
@@ -24,6 +26,7 @@ class WebJieKou(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.data_list = excel_to_list(os.path.join(data_path, "test_user_data.xlsx"), "H5")  # 读取TestUserReg工作簿的所有数据
+        cls.header7 = Login.head()
 
     def test_01_day_canyudu(self):
         u"""进入我的任务"""
@@ -33,7 +36,8 @@ class WebJieKou(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_reg_normal', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -47,7 +51,8 @@ class WebJieKou(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_reg_normal', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -61,7 +66,8 @@ class WebJieKou(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_reg_normal', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -75,7 +81,8 @@ class WebJieKou(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_reg_normal', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -89,7 +96,8 @@ class WebJieKou(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_reg_normal', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -103,7 +111,8 @@ class WebJieKou(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_reg_normal', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -117,7 +126,8 @@ class WebJieKou(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_reg_normal', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -131,7 +141,8 @@ class WebJieKou(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_reg_normal', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -145,7 +156,8 @@ class WebJieKou(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_reg_normal', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -159,7 +171,8 @@ class WebJieKou(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_canyuedu_xiaojie', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -173,7 +186,8 @@ class WebJieKou(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_faq', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -187,7 +201,8 @@ class WebJieKou(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_faq', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -201,7 +216,8 @@ class WebJieKou(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_faq_follow', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -215,7 +231,8 @@ class WebJieKou(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_feedback_log', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -229,7 +246,8 @@ class WebJieKou(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_feedbackerinfo', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -243,7 +261,8 @@ class WebJieKou(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_feedbacker_shaixuan', url, data, expect_res,
                       json.dumps(res.json(), ensure_ascii=False))
@@ -258,7 +277,8 @@ class WebJieKou(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_feedback_vcard', url, data, expect_res, res.text)
         # 响应断言（整体断言）
@@ -272,7 +292,8 @@ class WebJieKou(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_feedback_index', url, data, expect_res,
                       json.dumps(res.json(), ensure_ascii=False))
@@ -287,7 +308,8 @@ class WebJieKou(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_feedback_Guangchang', url, data, expect_res,
                       json.dumps(res.json(), ensure_ascii=False))
@@ -302,7 +324,8 @@ class WebJieKou(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_feedback_tags', url, data, expect_res,
                       json.dumps(res.json(), ensure_ascii=False))
@@ -317,7 +340,8 @@ class WebJieKou(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_feedback_pingjia', url, data, expect_res,
                       json.dumps(res.json(), ensure_ascii=False))
@@ -332,7 +356,8 @@ class WebJieKou(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_feedback_Detail', url, data, expect_res,
                       json.dumps(res.json(), ensure_ascii=False))
@@ -347,7 +372,8 @@ class WebJieKou(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_feedback_log', url, data, expect_res,
                       json.dumps(res.json(), ensure_ascii=False))
@@ -362,7 +388,8 @@ class WebJieKou(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_feedback_filter', url, data, expect_res,
                       json.dumps(res.json(), ensure_ascii=False))
@@ -377,7 +404,8 @@ class WebJieKou(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_feedback_gruop', url, data, expect_res,
                       json.dumps(res.json(), ensure_ascii=False))
@@ -392,7 +420,8 @@ class WebJieKou(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_feedback_customer', url, data, expect_res,
                       json.dumps(res.json(), ensure_ascii=False))
@@ -407,7 +436,8 @@ class WebJieKou(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_feedback_share', url, data, expect_res, res.text)
         # 响应断言（整体断言）

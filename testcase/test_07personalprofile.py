@@ -18,6 +18,8 @@ import json
 import sys
 import os
 
+from lib.util import Login
+
 sys.path.append('../..')
 
 from config.config import *
@@ -33,6 +35,7 @@ class PersonalProfile(unittest.TestCase):
     def setUpClass(cls):
         cls.data_list = excel_to_list(os.path.join(data_path, "test_user_data.xlsx"),
                                       "personalprofile")  # 读取TestUserReg工作簿的所有数据
+        cls.header7=Login.head()
 
     def test_01_geren_baseinfo(self):
         u'''基本信息界面'''
@@ -42,7 +45,8 @@ class PersonalProfile(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8=self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_reg_normal', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -56,7 +60,8 @@ class PersonalProfile(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_reg_normal', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -70,7 +75,8 @@ class PersonalProfile(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_reg_normal', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -84,7 +90,8 @@ class PersonalProfile(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_reg_normal', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -98,7 +105,8 @@ class PersonalProfile(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_reg_normal', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -112,7 +120,8 @@ class PersonalProfile(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_geren_language', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -126,7 +135,8 @@ class PersonalProfile(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_geren_avoid_relative', url, data, expect_res,
                       json.dumps(res.json(), ensure_ascii=False))
@@ -141,7 +151,8 @@ class PersonalProfile(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_geren_experience_list', url, data, expect_res,
                       json.dumps(res.json(), ensure_ascii=False))
@@ -156,7 +167,8 @@ class PersonalProfile(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_geren_career', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -170,7 +182,8 @@ class PersonalProfile(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_geren_skill_list', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -184,7 +197,8 @@ class PersonalProfile(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_geren_social_relative', url, data, expect_res,
                       json.dumps(res.json(), ensure_ascii=False))
@@ -199,7 +213,8 @@ class PersonalProfile(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_geren_certificate', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -213,7 +228,8 @@ class PersonalProfile(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_geren_train', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -227,7 +243,8 @@ class PersonalProfile(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_geren_contarct', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -241,7 +258,8 @@ class PersonalProfile(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_geren_base', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -255,7 +273,8 @@ class PersonalProfile(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_geren_jiaoyu', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -269,7 +288,8 @@ class PersonalProfile(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_geren_jinjilianxi', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -283,7 +303,8 @@ class PersonalProfile(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_geren_zhiwuxinxi', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -297,7 +318,8 @@ class PersonalProfile(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_geren_conpetency', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -311,7 +333,8 @@ class PersonalProfile(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_geren_project', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -325,7 +348,8 @@ class PersonalProfile(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_geren_adressbook', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -339,7 +363,8 @@ class PersonalProfile(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_geren_addtag', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -353,7 +378,8 @@ class PersonalProfile(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_geren_guanzhu', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -367,7 +393,8 @@ class PersonalProfile(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_geren_guanzhuquxiao', url, data, expect_res,
                       json.dumps(res.json(), ensure_ascii=False))
@@ -382,7 +409,8 @@ class PersonalProfile(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_geren_join_invite', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -396,7 +424,8 @@ class PersonalProfile(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_geren_join_record', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -410,7 +439,8 @@ class PersonalProfile(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_geren_aihao', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -424,7 +454,8 @@ class PersonalProfile(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_taren_kapian', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -438,7 +469,8 @@ class PersonalProfile(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_cache', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -452,7 +484,8 @@ class PersonalProfile(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_jieshao_save', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -466,7 +499,8 @@ class PersonalProfile(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_Tag_create', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -480,7 +514,8 @@ class PersonalProfile(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_background_switch', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -494,7 +529,8 @@ class PersonalProfile(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.get(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_use_language_flag', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -508,7 +544,8 @@ class PersonalProfile(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_use_language_init', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -522,7 +559,8 @@ class PersonalProfile(unittest.TestCase):
         url = case_data.get('url')
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)  # 用data=data 传字符串也可以
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_use_language_add', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）

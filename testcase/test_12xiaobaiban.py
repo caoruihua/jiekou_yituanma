@@ -4,6 +4,8 @@ import unittest
 
 import requests
 
+from lib.util import Login
+
 sys.path.append("../..")  # 提升2级到项目根目录下
 from config.config import *  # 从项目路径下导入
 from lib.read_excel import *  # 从项目路径下导入
@@ -17,21 +19,8 @@ class TestXiaobaiban(unittest.TestCase):
     def setUpClass(cls):  # 整个测试类只执行一次
         cls.data_list = excel_to_list(os.path.join(data_path, "test_user_data.xlsx"),
                                       "TestXiaobaiban")  # 读取TestUserReg工作簿的所有数据
+        cls.header7=Login.head()
 
-    def test_01user_login_normal(self):
-        u"""测试登录"""
-        case_data = get_test_data(self.data_list, 'test_user_login_normal')  # 从数据列表中查找到该用例数据
-        if not case_data:  # 有可能为None
-            logging.error("用例数据不存在")
-
-        url = case_data.get('url')  # excel中的标题也必须是小写url
-        data = case_data.get('data')  # 注意字符串格式，需要用json.loads()转化为字典格式
-        data1 = data.encode('UTF-8')
-        expect_res = case_data.get('expect_res')  # 期望数据
-
-        res = requests.post(url=url, data=json.loads(data1))  # 表单请求，数据转为字典格式
-        log_case_info('test_user_login_normal', url, data, expect_res, res.text)
-        self.assertEqual(res.text, expect_res)  # 断言
 
     def test_02xiaobaiban_coment(self):
         u"""小白板评论"""
@@ -42,8 +31,9 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')  # 注意字符串格式，需要用json.loads()转化为字典格式
         expect_res = case_data.get('expect_res')  # 期望数据
+        header8=self.header7
 
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)
+        res = requests.post(url=url, data=data.encode(), headers=header8)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -56,7 +46,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')  # 注意字符串格式，需要用json.loads()转化为字典格式
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.get(url=url, headers=hearder2)
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -69,7 +60,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.get(url=url, headers=hearder2)
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -82,7 +74,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.get(url=url, headers=hearder2)
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -95,7 +88,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.get(url=url, headers=hearder2)
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -108,7 +102,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -121,7 +116,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.get(url=url, headers=hearder2)
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -134,7 +130,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.get(url=url, headers=hearder2)
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -147,7 +144,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -160,7 +158,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.get(url=url, headers=hearder2)
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -173,7 +172,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -186,7 +186,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.get(url=url, headers=hearder2)
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -199,7 +200,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.get(url=url, headers=hearder2)
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -212,7 +214,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -225,7 +228,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -238,7 +242,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.get(url=url, headers=hearder2)
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -251,7 +256,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -264,7 +270,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -277,7 +284,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.get(url=url, headers=hearder2)
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -290,7 +298,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -303,7 +312,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.get(url=url, headers=hearder2)
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -316,7 +326,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.get(url=url, headers=hearder2)
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -329,7 +340,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -342,7 +354,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.get(url=url, headers=hearder2)
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -355,7 +368,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.get(url=url, headers=hearder2)
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)
         log_case_info('test_xiaobaiban_templates', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -368,7 +382,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.get(url=url, headers=hearder2)
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)
         log_case_info('test_xiaobaiban_tongzhi', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -381,7 +396,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.get(url=url, headers=hearder2)
+        header8 = self.header7
+        res = requests.get(url=url, headers=header8)
         log_case_info('test_xiaobaiban_badge', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -394,12 +410,13 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)
         time.sleep(2)
         id = res.json()["id"]  # 动态获取id
         res2 = requests.get(
             url="https://gateway.workdesk.esenyun.com:9091/words/openapi/words/destroy/" + id + "?groupId=",
-            headers=hearder2)
+            headers=header8)
         log_case_info('test_xiaobaiban_badge', url, data, expect_res, res2.text)
         print(id)
         self.assertEqual(res2.status_code, expect_res)  # 断言
@@ -418,11 +435,12 @@ class TestXiaobaiban(unittest.TestCase):
         url1 = case_data1.get('url')  # 删除数据接口
         data1 = case_data1.get('data')
         expect_res1 = case_data.get('expect_res')  # 期望数据
+        header8 = self.header7
 
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)
+        res = requests.post(url=url, data=data.encode(), headers=header8)
         time.sleep(2)
         id = res.json()["id"]  # 动态获取id
-        res2 = requests.get(url=url1 + id + "?groupId=", headers=hearder2)
+        res2 = requests.get(url=url1 + id + "?groupId=", headers=header8)
         log_case_info('test_deleteconment', url1, data1, expect_res1, res2.text)
         print(id)
         self.assertEqual(res.status_code, expect_res)  # 断言
@@ -436,8 +454,9 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')  # 注意字符串格式，需要用json.loads()转化为字典格式
         expect_res = case_data.get('expect_res')  # 期望数据
+        header8 = self.header7
 
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)
+        res = requests.post(url=url, data=data.encode(), headers=header8)
         log_case_info('ttest_xiaobaiban_coment_picture', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -450,7 +469,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)
         log_case_info('test_xiaobaiban_markers', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -463,7 +483,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.get(url=url, data=data.encode(), headers=hearder2)
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)
         log_case_info('test_xiaobaiban_increase', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -476,7 +497,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.get(url=url, data=data.encode(), headers=hearder2)
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)
         log_case_info('test_xiaobaiban_mycreate', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -489,7 +511,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.get(url=url, data=data.encode(), headers=hearder2)
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)
         log_case_info('test_xiaobaiban_myreplay', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -502,7 +525,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.get(url=url, data=data.encode(), headers=hearder2)
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)
         log_case_info('test_xiaobaiban_mycollect', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -515,7 +539,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.get(url=url, data=data.encode(), headers=hearder2)
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)
         log_case_info('test_xiaobaiban_myjoin', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -528,7 +553,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.get(url=url, data=data.encode(), headers=hearder2)
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)
         log_case_info('test_xiaobaiban_at_my', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -541,7 +567,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)
         log_case_info('test_xiaobaiban_combline', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -554,7 +581,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)
         log_case_info('test_xiaobaiban_update', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -567,7 +595,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)
         log_case_info('test_xiaobaiban_caogao', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
@@ -580,7 +609,8 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')
         expect_res = case_data.get('expect_res')  # 期望数据
-        res = requests.post(url=url, data=data.encode(), headers=hearder2)
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)
         log_case_info('test_xiaobaiban_jieluncaogao', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 

@@ -45,6 +45,7 @@ class TestTask(unittest.TestCase):
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
         header8 = self.header7
+        header8['conten-type']= 'application/json'
         res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_letter_oneday', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
@@ -120,6 +121,8 @@ class TestTask(unittest.TestCase):
         res = requests.post(url=url, data=data.encode(), headers=header8)
         log_case_info('test_user_letter_save', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
+
+
 
 
 if __name__ == '__main__':

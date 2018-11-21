@@ -42,7 +42,7 @@ class Login():
         header6["content-type"] = "application/json"
         return header6
 
-    def head():
+    def head1():
         hearer = {"User-Agent": "ESEN/1.3.11 (iPhone; iOS 12.1; Scale/2.00)",
                   "Authorization": "Basic bW9iaWxlX25hdGl2ZV9hcHA6NjF3NFUyenJjQjg4",
                   "accept": "*/*",
@@ -100,7 +100,7 @@ class Login():
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
         res = requests.post(url=url, data=data.encode(), headers=hearer1)  # 用data=data 传字符串也可以
-        log_case_info('test_uaa_login_wrong', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
+        #log_case_info('test_uaa_login_wrong', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         token = res.json()["access_token"]
         token1 = "Bearer" + " " + token
         header6 = hearer2

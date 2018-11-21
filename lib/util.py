@@ -1,5 +1,5 @@
 # -*-coding:utf-8-*-
-import self as self
+
 
 __author__ = 'Administrator'
 import json

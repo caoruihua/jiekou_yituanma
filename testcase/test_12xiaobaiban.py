@@ -600,7 +600,7 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_xiaobaiban_caogao', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
-    def test_42xiaobaiban_JielunCaogao(self):
+    def test_43xiaobaiban_JielunCaogao(self):
         u"""结论草稿箱"""
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_jieluncaogao')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None

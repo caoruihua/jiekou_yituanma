@@ -402,7 +402,7 @@ class TestXiaobaiban(unittest.TestCase):
         self.assertEqual(res.status_code, expect_res)  # 断言
 
     def test_31xiaobaiban_C_D(self):
-        u"""创建删除小白板"""
+        u"""创建删除带各种标签的小白板"""
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_create_delete')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
             logging.error("用例数据不存在")

@@ -443,6 +443,21 @@ class WebJieKou(unittest.TestCase):
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
+    def test_26_Canyudu_Nextweek(self):
+        u"""下一周参与度接口"""
+        case_data = get_test_data(self.data_list, 'test_user_canyudu_NextWeek')
+        if not case_data:
+            logging.error("用例数据不存在")
+        url = case_data.get('url')
+        data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
+        expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
+        # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
+        log_case_info('test_user_canyudu_NextWeek', url, data, expect_res, res.text)
+        # 响应断言（整体断言）
+        self.assertEqual(res.status_code, expect_res)
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)  # 运行所有用例

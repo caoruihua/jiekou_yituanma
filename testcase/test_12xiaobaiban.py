@@ -19,8 +19,7 @@ class TestXiaobaiban(unittest.TestCase):
     def setUpClass(cls):  # 整个测试类只执行一次
         cls.data_list = excel_to_list(os.path.join(data_path, "test_user_data.xlsx"),
                                       "TestXiaobaiban")  # 读取TestUserReg工作簿的所有数据
-        cls.header7=Login.head()
-
+        cls.header7 = Login.head()
 
     def test_02xiaobaiban_coment(self):
         u"""小白板评论"""
@@ -31,7 +30,7 @@ class TestXiaobaiban(unittest.TestCase):
         url = case_data.get('url')  # excel中的标题也必须是小写url
         data = case_data.get('data')  # 注意字符串格式，需要用json.loads()转化为字典格式
         expect_res = case_data.get('expect_res')  # 期望数据
-        header8=self.header7
+        header8 = self.header7
 
         res = requests.post(url=url, data=data.encode(), headers=header8)
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
@@ -442,7 +441,6 @@ class TestXiaobaiban(unittest.TestCase):
         id = res.json()["id"]  # 动态获取id
         res2 = requests.get(url=url1 + id + "?groupId=", headers=header8)
         log_case_info('test_deleteconment', url1, data1, expect_res1, res2.text)
-        print(id)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
     def test_32xiaobaiban_coment(self):
@@ -612,6 +610,90 @@ class TestXiaobaiban(unittest.TestCase):
         header8 = self.header7
         res = requests.post(url=url, data=data.encode(), headers=header8)
         log_case_info('test_xiaobaiban_jieluncaogao', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+
+    def test_44xiaobaiban_TagJiemian(self):
+        u"""新标签选择界面接口"""
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_jieluncaogao')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url')  # excel中的标题也必须是小写url
+        data = case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)
+        log_case_info('test_xiaobaiban_jieluncaogao', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+
+    def test_44xiaobaiban_TagJiemian(self):
+        u"""新标签选择界面接口"""
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_BiaoqiannNew')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url')  # excel中的标题也必须是小写url
+        data = case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)
+        log_case_info('test_xiaobaiban_BiaoqiannNew', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+
+    def test_45xiaobaiban_MemberNumber(self):
+        u"""参与小白板成员人数"""
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_member_number')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url')  # excel中的标题也必须是小写url
+        data = case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)
+        log_case_info('test_xiaobaiban_member_number', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+
+    def test_46xiaobaiban_WidgetTemplate(self):
+        u"""插件模板接口"""
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_widget_template')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url')  # excel中的标题也必须是小写url
+        data = case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)
+        log_case_info('test_xiaobaiban_widget_template', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+
+    def test_47xiaobaiban_Widgets(self):
+        u"""获取插件状况接口"""
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_widgets')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url')  # excel中的标题也必须是小写url
+        data = case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)
+        log_case_info('test_xiaobaiban_widgets', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+
+    def test_48xiaobaiban_Widgets(self):
+        u"""插件列表接口"""
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_associte')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url')  # excel中的标题也必须是小写url
+        data = case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)
+        log_case_info('test_xiaobaiban_associte', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
 

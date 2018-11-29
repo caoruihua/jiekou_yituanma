@@ -120,7 +120,7 @@ class Setting(unittest.TestCase):
         res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         id = res.json()["id"]
         url2 = url1 + id
-        res1 = requests.delete(url=url2, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
+        res1 = requests.delete(url=url2, data=data1.encode(), headers=header8)  # 用data=data 传字符串也可以
         log_case_info('test_setting_DeleteTag', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
         self.assertEqual(res1.status_code, expect_res1)
@@ -185,9 +185,9 @@ class Setting(unittest.TestCase):
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
-    def test_11_Setting_Permission(self):
-        u"""管理员列表"""
-        case_data = get_test_data(self.data_list, 'test_setting_permission')
+    def test_11_Setting_RM(self):
+        u"""移除管理员"""
+        case_data = get_test_data(self.data_list, 'test_setting_Removeadmin')
 
         if not case_data:
             logging.error("用例数据不存在")
@@ -195,8 +195,23 @@ class Setting(unittest.TestCase):
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
         header8 = self.header7
-        res = requests.get(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
-        log_case_info('test_setting_permission', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
+        log_case_info('test_setting_Removeadmin', url, data, expect_res, res.text, ensure_ascii=False)
+        # 响应断言（整体断言）
+        self.assertEqual(res.status_code, expect_res)
+
+    def test_12_Setting_ADD(self):
+        u"""添加管理员"""
+        case_data = get_test_data(self.data_list, 'test_setting_Adddadmin')
+
+        if not case_data:
+            logging.error("用例数据不存在")
+        url = case_data.get('url')
+        data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
+        expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
+        log_case_info('test_setting_Removeadmin', url, data, expect_res, res.text,ensure_ascii=False)
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 

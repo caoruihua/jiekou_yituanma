@@ -217,4 +217,4 @@ class Setting(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main(verbosity=2, retry=2)  # 运行所有用例
+    unittest.main(verbosity=2)  # 运行所有用例

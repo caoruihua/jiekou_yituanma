@@ -13,7 +13,7 @@ from lib.read_excel import *
 from lib.case_log import log_case_info
 
 
-class TestTask(unittest.TestCase):
+class TestLetter(unittest.TestCase):
     u"""感谢信"""
 
     @classmethod

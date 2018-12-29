@@ -65,7 +65,7 @@ class TestXiaobaiban(unittest.TestCase):
         self.assertEqual(res.status_code, expect_res)  # 断言
 
     def test_05xiaobaiban_yidu(self):
-        u"""取消采纳建议"""
+        u"""小白板已读"""
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_yidu')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
             logging.error("用例数据不存在")
@@ -79,7 +79,7 @@ class TestXiaobaiban(unittest.TestCase):
         self.assertEqual(res.status_code, expect_res)  # 断言
 
     def test_06xiaobaiban_weidu(self):
-        u"""取消采纳建议"""
+        u"""小白板未读"""
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_weidu')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
             logging.error("用例数据不存在")

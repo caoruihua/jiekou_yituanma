@@ -63,7 +63,7 @@ class TestApproval(unittest.TestCase):
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
-    def test__02find_approval_by_id(self):
+    def test__03find_approval_by_id(self):
         u"""查看指定审批"""
         case_data = get_test_data(self.data_list, 'test__find_approval_by_id')
         if not case_data:
@@ -78,7 +78,7 @@ class TestApproval(unittest.TestCase):
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
-    def test__03find_approval_my_shenqing(self):
+    def test__04find_approval_my_shenqing(self):
         u"""查看我申请的"""
         case_data = get_test_data(self.data_list, 'test__find_approval_my_shenqing')
         if not case_data:
@@ -94,7 +94,7 @@ class TestApproval(unittest.TestCase):
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
-    def test__04find_approval_chaosongme(self):
+    def test__05find_approval_chaosongme(self):
         u"""查看抄送我的审批"""
         case_data = get_test_data(self.data_list, 'test__find_approval_chaosongme')
         if not case_data:
@@ -109,7 +109,7 @@ class TestApproval(unittest.TestCase):
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
-    def test__05find_approval_my_shenpi(self):
+    def test__06find_approval_my_shenpi(self):
         u"""查看我申请的"""
         case_data = get_test_data(self.data_list, 'test__find_approval_my_shenpi')
         if not case_data:
@@ -124,7 +124,7 @@ class TestApproval(unittest.TestCase):
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
-    def test__06approval_template(self):
+    def test__07approval_template(self):
         u"""查看我申请的"""
         case_data = get_test_data(self.data_list, 'test__approval_template')
         if not case_data:
@@ -139,7 +139,7 @@ class TestApproval(unittest.TestCase):
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
-    def test__07approval_create(self):
+    def test__08approval_create(self):
         u"""查看我申请的"""
         case_data = get_test_data(self.data_list, 'test__approval_create')
         if not case_data:
@@ -156,7 +156,7 @@ class TestApproval(unittest.TestCase):
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
-    def test__08approval_ok(self):
+    def test__09approval_ok(self):
         u"""审批通过"""
         case_data = get_test_data(self.data_list, 'test__approval_create')
         case_data1 = get_test_data(self.data_list, 'test__approval_submmit_ok')
@@ -176,7 +176,7 @@ class TestApproval(unittest.TestCase):
         log_case_info('test_approval_create', url1, data1, expect_res1, json.dumps(res.json(), ensure_ascii=False))
         self.assertEqual(res.status_code, expect_res)
 
-    def test__09approval_over(self):
+    def test__10approval_over(self):
         u"""查看已完成的审批"""
         case_data = get_test_data(self.data_list, 'test__approval_over')
         if not case_data:
@@ -190,7 +190,7 @@ class TestApproval(unittest.TestCase):
         log_case_info('test_approval_over', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         self.assertEqual(res.status_code, expect_res)
 
-    def test__10approval_chehui(self):
+    def test__11approval_chehui(self):
         u"""撤回审批"""
         case_data = get_test_data(self.data_list, 'test__approval_create')
         case_data1 = get_test_data(self.data_list, 'test__approval_chehui')

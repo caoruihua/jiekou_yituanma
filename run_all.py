@@ -1,6 +1,8 @@
-import os, time, unittest
+import os
+import time
+import unittest
+
 import HTMLTestRunner_cn
-import pytest
 
 report_path = os.path.dirname(os.path.abspath('.')) + '/jiekou2/report/'
 now = time.strftime('%y-%m-%d_%H_%M', time.localtime(time.time()))  # 获取当前信息并且以前面的格式输出

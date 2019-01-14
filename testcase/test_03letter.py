@@ -178,8 +178,5 @@ class TestLetter(unittest.TestCase):
         log_case_info('test_user_letter_Option', url, data, expect_res, res.text)
 
 
-
-
-
 if __name__ == '__main__':
     unittest.main(verbosity=2)  # 运行所有用例

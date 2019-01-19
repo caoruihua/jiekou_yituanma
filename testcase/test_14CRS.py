@@ -28,7 +28,7 @@ class CRS(unittest.TestCase):
     def setUpClass(cls):
         cls.data_list = excel_to_list(os.path.join(data_path, "test_user_data.xlsx"), "CRS")  # 读取TestUserReg工作簿的所有数据
         cls.header7=Login.head()
-        cls.header10=Login.head1()
+       # cls.header10=Login.head1()
 
     def test_01CRS_Customer(self):
         u"""客户列表"""

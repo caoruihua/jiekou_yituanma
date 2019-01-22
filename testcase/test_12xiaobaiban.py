@@ -696,6 +696,36 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_xiaobaiban_associte', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
+    def test_51xiaobaiban_filter(self):
+        u"""小白板标签搜索接口"""
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_filter_search')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url')  # excel中的标题也必须是小写url
+        data = case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)
+        log_case_info('test_xiaobaiban_filter_search', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+
+    def test_52xiaobaiban_cehua(self):
+        u"""小白板侧滑筛选接口"""
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_cehua_search')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url')  # excel中的标题也必须是小写url
+        data = case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)
+        log_case_info('test_xiaobaiban_cehua_search', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+
+
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)

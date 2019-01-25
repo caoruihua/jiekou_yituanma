@@ -215,7 +215,7 @@ class TestXiaobaiban(unittest.TestCase):
         expect_res = case_data.get('expect_res')  # 期望数据
         header8 = self.header7
         res = requests.post(url=url, data=data.encode(), headers=header8)
-        log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
+        log_case_info('test_xiaobaiban_jielun', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
     def test_18xiaobaiban_search(self):

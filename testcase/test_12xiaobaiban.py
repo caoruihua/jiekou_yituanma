@@ -65,7 +65,7 @@ class TestXiaobaiban(unittest.TestCase):
         self.assertEqual(res.status_code, expect_res)  # 断言
 
     def test_05xiaobaiban_yidu(self):
-        u"""取消采纳建议"""
+        u"""小白板已读"""
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_yidu')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
             logging.error("用例数据不存在")
@@ -79,7 +79,7 @@ class TestXiaobaiban(unittest.TestCase):
         self.assertEqual(res.status_code, expect_res)  # 断言
 
     def test_06xiaobaiban_weidu(self):
-        u"""取消采纳建议"""
+        u"""小白板未读"""
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_weidu')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
             logging.error("用例数据不存在")
@@ -215,7 +215,7 @@ class TestXiaobaiban(unittest.TestCase):
         expect_res = case_data.get('expect_res')  # 期望数据
         header8 = self.header7
         res = requests.post(url=url, data=data.encode(), headers=header8)
-        log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
+        log_case_info('test_xiaobaiban_jielun', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
     def test_18xiaobaiban_search(self):
@@ -420,7 +420,7 @@ class TestXiaobaiban(unittest.TestCase):
         print(id)
         self.assertEqual(res2.status_code, expect_res)  # 断言
 
-    def test_31xiaobaiban_deletePinglun(self):
+    def test_32xiaobaiban_deletePinglun(self):
         u"""创建删除评论"""
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_create_common')  # 从数据列表中查找到该用例数据
         case_data1 = get_test_data(self.data_list, 'test_xiaobaiban_delete_common')
@@ -443,7 +443,7 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_deleteconment', url1, data1, expect_res1, res2.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
-    def test_32xiaobaiban_coment(self):
+    def test_33xiaobaiban_coment(self):
         u"""小白板评论上传图片"""
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_coment_picture')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
@@ -458,7 +458,7 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('ttest_xiaobaiban_coment_picture', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
-    def test_33xiaobaiban_tongzhi(self):
+    def test_34xiaobaiban_tongzhi(self):
         u"""小白板标签相关"""
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_markers')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
@@ -472,7 +472,7 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_xiaobaiban_markers', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
-    def test_34xiaobaiban_Dashboard_Increase(self):
+    def test_35xiaobaiban_Dashboard_Increase(self):
         u"""小白板日增量报告"""
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_increase')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
@@ -486,7 +486,7 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_xiaobaiban_increase', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
-    def test_35xiaobaiban_Dashboard_Mycreate(self):
+    def test_36xiaobaiban_Dashboard_Mycreate(self):
         u"""七天内我发布的小白板"""
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_mycreate')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
@@ -500,7 +500,7 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_xiaobaiban_mycreate', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
-    def test_36xiaobaiban_Dashboard_Myreply(self):
+    def test_37xiaobaiban_Dashboard_Myreply(self):
         u"""我回复的小白板数据"""
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_myreply')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
@@ -514,7 +514,7 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_xiaobaiban_myreplay', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
-    def test_37xiaobaiban_Dashboard_Mycollect(self):
+    def test_38xiaobaiban_Dashboard_Mycollect(self):
         u"""我收藏的小白板数据"""
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_mycollect')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
@@ -528,7 +528,7 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_xiaobaiban_mycollect', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
-    def test_38xiaobaiban_Dashboard_Myjoin(self):
+    def test_39xiaobaiban_Dashboard_Myjoin(self):
         u"""我参与的小白板数据"""
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_myjoin')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
@@ -542,7 +542,7 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_xiaobaiban_myjoin', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
-    def test_39xiaobaiban_Dashboard_at_my(self):
+    def test_40xiaobaiban_Dashboard_at_my(self):
         u"""@我的小白板数据"""
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_at_my')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
@@ -556,7 +556,7 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_xiaobaiban_at_my', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
-    def test_40xiaobaiban_combline(self):
+    def test_41xiaobaiban_combline(self):
         u"""新建小白板标签选择页面"""
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_combline')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
@@ -570,7 +570,7 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_xiaobaiban_combline', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
-    def test_41xiaobaiban_Update(self):
+    def test_42xiaobaiban_Update(self):
         u"""小白板更新"""
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_update')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
@@ -584,7 +584,7 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_xiaobaiban_update', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
-    def test_42xiaobaiban_Caogao(self):
+    def test_43xiaobaiban_Caogao(self):
         u"""小白板草稿箱"""
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_caogao')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
@@ -598,7 +598,7 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_xiaobaiban_caogao', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
-    def test_43xiaobaiban_JielunCaogao(self):
+    def test_44xiaobaiban_JielunCaogao(self):
         u"""结论草稿箱"""
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_jieluncaogao')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
@@ -612,7 +612,7 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_xiaobaiban_jieluncaogao', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
-    def test_44xiaobaiban_TagJiemian(self):
+    def test_45xiaobaiban_TagJiemian(self):
         u"""新标签选择界面接口"""
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_jieluncaogao')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
@@ -626,7 +626,7 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_xiaobaiban_jieluncaogao', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
-    def test_44xiaobaiban_TagJiemian(self):
+    def test_46xiaobaiban_TagJiemian(self):
         u"""新标签选择界面接口"""
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_BiaoqiannNew')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
@@ -640,7 +640,7 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_xiaobaiban_BiaoqiannNew', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
-    def test_45xiaobaiban_MemberNumber(self):
+    def test_47xiaobaiban_MemberNumber(self):
         u"""参与小白板成员人数"""
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_member_number')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
@@ -654,7 +654,7 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_xiaobaiban_member_number', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
-    def test_46xiaobaiban_WidgetTemplate(self):
+    def test_48xiaobaiban_WidgetTemplate(self):
         u"""插件模板接口"""
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_widget_template')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
@@ -668,7 +668,7 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_xiaobaiban_widget_template', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
-    def test_47xiaobaiban_Widgets(self):
+    def test_49xiaobaiban_Widgets(self):
         u"""获取插件状况接口"""
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_widgets')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
@@ -682,7 +682,7 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_xiaobaiban_widgets', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
-    def test_48xiaobaiban_Widgets(self):
+    def test_50xiaobaiban_Widgets(self):
         u"""插件列表接口"""
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_associte')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None
@@ -695,6 +695,36 @@ class TestXiaobaiban(unittest.TestCase):
         res = requests.get(url=url, data=data.encode(), headers=header8)
         log_case_info('test_xiaobaiban_associte', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
+
+    def test_51xiaobaiban_filter(self):
+        u"""小白板标签搜索接口"""
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_filter_search')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url')  # excel中的标题也必须是小写url
+        data = case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)
+        log_case_info('test_xiaobaiban_filter_search', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+
+    def test_52xiaobaiban_cehua(self):
+        u"""小白板侧滑筛选接口"""
+        case_data = get_test_data(self.data_list, 'test_xiaobaiban_cehua_search')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url')  # excel中的标题也必须是小写url
+        data = case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)
+        log_case_info('test_xiaobaiban_cehua_search', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+
+
 
 
 if __name__ == '__main__':

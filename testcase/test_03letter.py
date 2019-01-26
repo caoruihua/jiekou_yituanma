@@ -13,7 +13,7 @@ from lib.read_excel import *
 from lib.case_log import log_case_info
 
 
-class TestTask(unittest.TestCase):
+class TestLetter(unittest.TestCase):
     u"""感谢信"""
 
     @classmethod
@@ -122,6 +122,60 @@ class TestTask(unittest.TestCase):
         res = requests.post(url=url, data=data.encode(), headers=header8)
         log_case_info('test_user_letter_save', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
+
+    def test_08letter_bangdan(self):
+        u"""感谢信阅读榜单"""
+        case_data = get_test_data(self.data_list, 'test_user_letter_bangdan')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url')  # excel中的标题也必须是小写url
+        data = case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)
+        log_case_info('test_user_letter_bangdan', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+
+    def test_09letter_badge(self):
+        u"""感谢信阅读榜单"""
+        case_data = get_test_data(self.data_list, 'test_user_letter_badge')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url')  # excel中的标题也必须是小写url
+        data = case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)
+        log_case_info('test_user_letter_badge', url, data, expect_res, res.text)
+        self.assertEqual(res.status_code, expect_res)  # 断言
+
+    def test_09letter_Mysend(self):
+        u"""我送出的感谢信每月"""
+        case_data = get_test_data(self.data_list, 'test_user_letter_MySend')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url')  # excel中的标题也必须是小写url
+        data = case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)
+        log_case_info('test_user_letter_MySend', url, data, expect_res, res.text)
+
+    def test_10letter_Option(self):
+        u"""感谢信设置"""
+        case_data = get_test_data(self.data_list, 'test_user_letter_Option')  # 从数据列表中查找到该用例数据
+        if not case_data:  # 有可能为None
+            logging.error("用例数据不存在")
+
+        url = case_data.get('url')  # excel中的标题也必须是小写url
+        data = case_data.get('data')
+        expect_res = case_data.get('expect_res')  # 期望数据
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)
+        log_case_info('test_user_letter_Option', url, data, expect_res, res.text)
 
 
 if __name__ == '__main__':

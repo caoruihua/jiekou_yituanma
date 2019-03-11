@@ -57,15 +57,15 @@ class TestApproval(unittest.TestCase):
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
         header8 = self.header7
 
-        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
+        res = requests.get(url=url, data=data.encode(),headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_find_approval_by_id', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
-    def test__03find_approval_by_id(self):
+    def test__03find_approval_Chaosong(self):
         u"""查看指定审批"""
-        case_data = get_test_data(self.data_list, 'test__find_approval_by_id')
+        case_data = get_test_data(self.data_list, 'test__find_approval_chaosongme')
         if not case_data:
             logging.error("用例数据不存在")
         url = case_data.get('url')
@@ -74,7 +74,7 @@ class TestApproval(unittest.TestCase):
         header8 = self.header7
         res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
-        log_case_info('test_find_approval_by_id', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
+        log_case_info('test__find_approval_chaosongme', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
@@ -87,7 +87,7 @@ class TestApproval(unittest.TestCase):
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
         header8 = self.header7
-        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
+        res = requests.get(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_find_approval_my_shenqing', url, data, expect_res,
                       json.dumps(res.json(), ensure_ascii=False))
@@ -103,7 +103,7 @@ class TestApproval(unittest.TestCase):
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
         header8 = self.header7
-        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
+        res = requests.get(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_approval_chaosongme', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -118,7 +118,7 @@ class TestApproval(unittest.TestCase):
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
         header8 = self.header7
-        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
+        res = requests.get(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_find_approval_my_shenpi', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -190,7 +190,53 @@ class TestApproval(unittest.TestCase):
         log_case_info('test_approval_over', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         self.assertEqual(res.status_code, expect_res)
 
-    def test__11approval_chehui(self):
+    def test__11approval_draft(self):
+        u"""审批保存为草稿"""
+        case_data = get_test_data(self.data_list, 'test__approval_draft')
+        if not case_data:
+            logging.error("用例数据不存在")
+        url = case_data.get('url')
+        data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
+        expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
+        header8 = self.header7
+        res = requests.put(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
+        # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
+        log_case_info('test__approval_draft', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
+        self.assertEqual(res.status_code, expect_res)
+
+
+    def test__12approval_savedraft(self):
+        u"""审批保存为草稿"""
+        case_data = get_test_data(self.data_list, 'test__approval_draft')
+        if not case_data:
+            logging.error("用例数据不存在")
+        url = case_data.get('url')
+        data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
+        expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
+        header8 = self.header7
+        res = requests.put(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
+        # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
+        log_case_info('test__approval_draft', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
+        self.assertEqual(res.status_code, expect_res)
+
+
+    def test__13approval_Draftlist(self):
+        u"""审批草稿箱首页"""
+        case_data = get_test_data(self.data_list, 'test__approval_draftlist')
+        if not case_data:
+            logging.error("用例数据不存在")
+        url = case_data.get('url')
+        data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
+        expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
+        # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
+        log_case_info('test__approval_draftlist', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
+        self.assertEqual(res.status_code, expect_res)
+
+
+
+    def test__14approval_chehui(self):
         u"""撤回审批"""
         case_data = get_test_data(self.data_list, 'test__approval_create')
         case_data1 = get_test_data(self.data_list, 'test__approval_chehui')
@@ -207,8 +253,9 @@ class TestApproval(unittest.TestCase):
         print(type(id))
         url1 = case_data1.get('url')
         data1 = case_data1.get('data')  # 转为字典，需要取里面的name进行数据库检查
+        url2=url1+id+"/cancel"
         expect_res1 = case_data1.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        res1 = requests.post(url=url1, data=id, headers=header8)  # 用data=data 传字符串也可以
+        res1 = requests.put(url=url2, data=data1.encode(), headers=header8)  # 用data=data 传字符串也可以
         log_case_info('test_approval_create', url1, data1, expect_res1, json.dumps(res.json(), ensure_ascii=False))
         self.assertEqual(res1.status_code, expect_res1)
 

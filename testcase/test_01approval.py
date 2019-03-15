@@ -41,7 +41,7 @@ class TestApproval(unittest.TestCase):
         data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
         header8 = self.header7
-        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
+        res = requests.get(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
         # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
         log_case_info('test_user_approvalist', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
         # 响应断言（整体断言）
@@ -169,12 +169,19 @@ class TestApproval(unittest.TestCase):
         header8 = self.header7
 
         res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
+        id=res.json()['id']
+        print(id)
 
         url1 = case_data1.get('url')
         data1 = case_data1.get('data')  # 转为字典，需要取里面的name进行数据库检查
         expect_res1 = case_data1.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
+        url2=url1+id+'/passed'
+        print(url2)
+        res1=requests.put(url=url2,data=data.encode(),headers=header8)
         log_case_info('test_approval_create', url1, data1, expect_res1, json.dumps(res.json(), ensure_ascii=False))
-        self.assertEqual(res.status_code, expect_res)
+        self.assertEqual(res1.status_code, expect_res1)
+
+
 
     def test__10approval_over(self):
         u"""查看已完成的审批"""

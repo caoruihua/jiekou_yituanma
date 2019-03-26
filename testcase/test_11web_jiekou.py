@@ -193,20 +193,6 @@ class WebJieKou(unittest.TestCase):
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
-    def test_11_faq(self):
-        u"""我的反馈"""
-        case_data = get_test_data(self.data_list, 'test_user_faq')
-        if not case_data:
-            logging.error("用例数据不存在")
-        url = case_data.get('url')
-        data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
-        expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
-        header8 = self.header7
-        res = requests.get(url=url, headers=header8)  # 用data=data 传字符串也可以
-        # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
-        log_case_info('test_user_faq', url, data, expect_res, json.dumps(res.json(), ensure_ascii=False))
-        # 响应断言（整体断言）
-        self.assertEqual(res.status_code, expect_res)
 
     def test_12_faq_follow(self):
         u"""faq结果反馈"""
@@ -562,6 +548,173 @@ class WebJieKou(unittest.TestCase):
         log_case_info('test_user_feedback_bad', url, data, expect_res, res.text)
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
+
+    def test_34_feedback_manager(self):
+        u"""进入管理员控制台接口"""
+        case_data = get_test_data(self.data_list, 'test_user_feedback_manager')
+        if not case_data:
+            logging.error("用例数据不存在")
+        url = case_data.get('url')
+        data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
+        expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
+        # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
+        log_case_info('test_user_feedback_manager', url, data, expect_res, res.text)
+        # 响应断言（整体断言）
+        self.assertEqual(res.status_code, expect_res)
+
+    def test_35_feedback_tree(self):
+        u"""内部创建反馈界面"""
+        case_data = get_test_data(self.data_list, 'test_user_feedback_tree')
+        if not case_data:
+            logging.error("用例数据不存在")
+        url = case_data.get('url')
+        data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
+        expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
+        # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
+        log_case_info('test_user_feedback_tree', url, data, expect_res, res.text)
+        # 响应断言（整体断言）
+        self.assertEqual(res.status_code, expect_res)
+
+    def test_36_feedback_tree(self):
+        u"""内部创建反馈界面"""
+        case_data = get_test_data(self.data_list, 'test_user_feedback_manager')
+        if not case_data:
+            logging.error("用例数据不存在")
+        url = case_data.get('url')
+        data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
+        expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
+        # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
+        log_case_info('test_user_feedback_manager', url, data, expect_res, res.text)
+        # 响应断言（整体断言）
+        self.assertEqual(res.status_code, expect_res)
+
+    def test_37_feedback_classify(self):
+        u"""内部创建反馈选择紧急程度界面"""
+        case_data = get_test_data(self.data_list, 'test_user_feedback_classify')
+        if not case_data:
+            logging.error("用例数据不存在")
+        url = case_data.get('url')
+        data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
+        expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
+        # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
+        log_case_info('test_user_feedback_classify', url, data, expect_res, res.text)
+        # 响应断言（整体断言）
+        self.assertEqual(res.status_code, expect_res)
+
+    def test_38_feedback_classify(self):
+        u"""客户反馈问题类型接口"""
+        case_data = get_test_data(self.data_list, 'test_user_feedback_parent')
+        if not case_data:
+            logging.error("用例数据不存在")
+        url = case_data.get('url')
+        data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
+        expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
+        # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
+        log_case_info('test_user_feedback_parent', url, data, expect_res, res.text)
+        # 响应断言（整体断言）
+        self.assertEqual(res.status_code, expect_res)
+
+
+    def test_39_feedback_xuqiu(self):
+        u"""需求管理选项接口"""
+        case_data = get_test_data(self.data_list, 'test_user_feedback_xuqiu')
+        if not case_data:
+            logging.error("用例数据不存在")
+        url = case_data.get('url')
+        data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
+        expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
+        # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
+        log_case_info('test_user_feedback_xuqiu', url, data, expect_res, res.text)
+        # 响应断言（整体断言）
+        self.assertEqual(res.status_code, expect_res)
+
+    def test_40_feedback_xuqiu(self):
+        u"""创建反馈关联产品接口"""
+        case_data = get_test_data(self.data_list, 'test_user_feedback_product')
+        if not case_data:
+            logging.error("用例数据不存在")
+        url = case_data.get('url')
+        data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
+        expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
+        # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
+        log_case_info('test_user_feedback_product', url, data, expect_res, res.text)
+        # 响应断言（整体断言）
+        self.assertEqual(res.status_code, expect_res)
+
+    def test_41_feedback_Search(self):
+        u"""客户反馈搜索接口"""
+        case_data = get_test_data(self.data_list, 'test_user_feedback_search')
+        if not case_data:
+            logging.error("用例数据不存在")
+        url = case_data.get('url')
+        data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
+        expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
+        header8 = self.header7
+        res = requests.post(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
+        # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
+        log_case_info('test_user_feedback_search', url, data, expect_res, res.text)
+        # 响应断言（整体断言）
+        self.assertEqual(res.status_code, expect_res)
+
+    def test_41_feedback_Zhibiao(self):
+        u"""客户反悔-数据看板-重点指标"""
+        case_data = get_test_data(self.data_list, 'test_user_feedback_zhibiao')
+        if not case_data:
+            logging.error("用例数据不存在")
+        url = case_data.get('url')
+        data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
+        expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
+        # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
+        log_case_info('test_user_feedback_zhibiao', url, data, expect_res, res.text)
+        # 响应断言（整体断言）
+        self.assertEqual(res.status_code, expect_res)
+
+    def test_42_feedback_follow(self):
+        u"""客户反馈中发中沟通信息"""
+        case_data = get_test_data(self.data_list, 'test_user_feedback_zhibiao')
+        if not case_data:
+            logging.error("用例数据不存在")
+        url = case_data.get('url')
+        data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
+        expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
+        # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
+        log_case_info('test_user_feedback_zhibiao', url, data, expect_res, res.text)
+        # 响应断言（整体断言）
+        self.assertEqual(res.status_code, expect_res)
+
+    def test_43_feedback_MSG(self):
+        u"""一键催办接口"""
+        case_data = get_test_data(self.data_list, 'test_user_feedback_msg')
+        if not case_data:
+            logging.error("用例数据不存在")
+        url = case_data.get('url')
+        data = case_data.get('data')  # 转为字典，需要取里面的name进行数据库检查
+        expect_res = case_data.get('expect_res')  # 转为字典，断言时直接断言两个字典是否相等
+        header8 = self.header7
+        res = requests.get(url=url, data=data.encode(), headers=header8)  # 用data=data 传字符串也可以
+        # 期望响应结果，注意字典格式和json格式的区别（如果有true/false/null要转化为字典格式）
+        log_case_info('test_user_feedback_msg', url, data, expect_res, res.text)
+        # 响应断言（整体断言）
+        self.assertEqual(res.status_code, 400) and self.assertEqual(res.status_code, 200)
+
 
 
 

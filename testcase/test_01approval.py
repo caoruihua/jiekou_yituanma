@@ -14,13 +14,13 @@ import unittest
 
 import requests
 
+from lib.case_log import log_case_info
+from lib.db import *
+from lib.read_excel import *
 from lib.util import Login
 
 sys.path.append('../..')
 
-from lib.db import *
-from lib.read_excel import *
-from lib.case_log import log_case_info
 
 
 class TestApproval(unittest.TestCase):
@@ -178,7 +178,7 @@ class TestApproval(unittest.TestCase):
         url2=url1+id+'/passed'
         print(url2)
         res1=requests.put(url=url2,data=data.encode(),headers=header8)
-        log_case_info('test_approval_create', url1, data1, expect_res1, json.dumps(res.json(), ensure_ascii=False))
+        log_case_info('test__approval_submmit_ok', url1, data1, expect_res1, json.dumps(res.json(), ensure_ascii=False))
         self.assertEqual(res1.status_code, expect_res1)
 
 

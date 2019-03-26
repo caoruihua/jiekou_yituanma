@@ -668,7 +668,7 @@ class TestXiaobaiban(unittest.TestCase):
         log_case_info('test_xiaobaiban_widget_template', url, data, expect_res, res.text)
         self.assertEqual(res.status_code, expect_res)  # 断言
 
-    def test_49xiaobaiban_Widgets(self):
+    def test_49xiaobaiban_WidgetStatus(self):
         u"""获取插件状况接口"""
         case_data = get_test_data(self.data_list, 'test_xiaobaiban_widgets')  # 从数据列表中查找到该用例数据
         if not case_data:  # 有可能为None

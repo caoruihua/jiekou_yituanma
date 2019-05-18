@@ -13,6 +13,10 @@ def excel_to_list(data_file, sheet):
 
 
 def get_test_data(data_list, case_name):
+    """
+
+    :rtype:
+    """
     for case_data in data_list:
         if case_name == case_data['case_name']:  # 如果字典数据中case_name与参数一致
             return case_data

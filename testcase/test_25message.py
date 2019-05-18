@@ -60,7 +60,6 @@ class Message(unittest.TestCase):
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
 
-
     def test_03_Message_GTD(self):
         u"""进入任务助手"""
         case_data = get_test_data(self.data_list, 'test_Message_xiaobaiban')
@@ -105,7 +104,6 @@ class Message(unittest.TestCase):
         log_case_info('test_Message_shenpi', url, data, expect_res, json.dumps(res.json()))
         # 响应断言（整体断言）
         self.assertEqual(res.status_code, expect_res)
-
 
 
 if __name__ == '__main__':
